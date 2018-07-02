@@ -1,0 +1,25 @@
+<ion-view title="Notenrechner" id="page1">
+  <ion-content padding="true" class="has-header">
+    <div id="notenrechner-markdown1" style="text-align:center;" class="show-list-numbers-and-dots">
+      <p style="color:#000000;">Lies die Hilfe, um zu verstehem wie Notenrechner die Noten berechnet und entscheide selbst, ob das für dich passt</p>
+    </div>
+    <div class="list card" id="notenrechner-card21">
+      <ion-item id="notenrechner-list-item11">Linearer Notenschlüssel: {{(6-5*(erreicht/grundlage) | number:1)}}</ion-item>
+      <ion-item ng-model="notenpunkte" id="notenrechner-list-item12">Prozent-Notenpunkte: {{notenpunkte}}</ion-item>
+    </div>
+    <form id="notenrechner-form4" class="list">
+      <label class="item item-input" id="notenrechner-input3">
+        <span class="input-label">Grundlage</span>
+        <input ng-model="grundlage" type="text" pattern="[0-9]*" placeholder="30">
+      </label>
+      <label class="item item-input" id="notenrechner-input5">
+        <span class="input-label">Erreicht</span>
+        <input ng-model="erreicht" type="text" pattern="[0-9]*" placeholder="30">
+      </label>
+    </form>
+    <div id="notenrechner-button-bar2" class="button-bar">
+      <a ui-sref="notenrechner2()" id="notenrechner-button10" class="button button-positive button-block icon ion-ios-information-outline"></a>
+      <a ui-sref="notenpunkteSchlSsel()" id="notenrechner-button11" class="button button-positive button-block icon ion-document"></a>
+    </div>
+  </ion-content>
+</ion-view>
