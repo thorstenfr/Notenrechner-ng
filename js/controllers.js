@@ -7,7 +7,7 @@ function ($scope, $stateParams) {
 	$scope.grundlage = 30;
 	$scope.erreicht = 15;
 	$scope.notenpunkte = 6;
-	
+		
 
 }])
    

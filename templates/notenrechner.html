@@ -21,6 +21,8 @@
     </form>
 	
 	
+	
+	
 	<div class="row">
 		<button ng-click="erreicht = erreicht + '7'" class="button col-3">7</button>
 		<button ng-click="erreicht = erreicht + '8'" class="button col-3">8</button>
@@ -31,19 +33,20 @@
 		<button ng-click="erreicht = erreicht + '4'" class="button col-3">4</button>
 		<button ng-click="erreicht = erreicht + '5'" class="button col-3">5</button>
 		<button ng-click="erreicht = erreicht + '6'" class="button col-3">6</button>
-		<button ng-click="erreicht = '30'" class="button col-3">30</button>
+		<button ng-click="erreicht = erreicht.slice(0,-1)" class="button icon	ion-backspace col-3"></button>
 	</div>
 	<div class="row">
 		<button ng-click="erreicht = erreicht + '1'" class="button col-3">1</button>
 		<button ng-click="erreicht = erreicht + '2'" class="button col-3">2</button>
 		<button ng-click="erreicht = erreicht + '3'" class="button col-3">3</button>
-		<button ng-click="erreicht = '60'" class="button col-3">60</button>
+		<button ng-click="erreicht = '30'" class="button col-3">30</button>
 	</div>
 	<div class="row">
 		<button ng-click="erreicht = erreicht + '0'" class="button col-6">0</button>
-		<button ng-click="erreicht = erreicht + '1'" class="button col-3">1</button>
-		<button ng-click="erreicht = erreicht + '.'" class="button col-3">.</button>
+		<button ng-click="erreicht = erreicht + '.'" class="button col-3">,</button>
+		<button ng-click="erreicht =  '60'" class="button col-3">60</button>
 	</div>
+	<ion-icon name="backspace"></ion-icon>
 	
 	
 	
