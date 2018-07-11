@@ -1,12 +1,15 @@
 angular.module('app.controllers', [])
   
-.controller('notenrechnerCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+.controller('notenrechnerCtrl', ['$scope', '$stateParams', 'Data', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
-function ($scope, $stateParams) {
-	$scope.grundlage = 30;
+function ($scope, $stateParams, Data) {
+	$scope.Data = Data;
+	
+	$scope.grundlage = 35;
 	$scope.erreicht = 15;
 	$scope.notenpunkte = 6;
+	$scope.isErreicht = true;
 	
 	$scope.TasteClick = function(taste) {
 		console.log("Taste: " + $scope.erreicht);
@@ -17,10 +20,13 @@ function ($scope, $stateParams) {
 
 }])
    
-.controller('notenpunkteSchlSselCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+.controller('notenpunkteSchlSselCtrl', ['$scope', '$stateParams', 'Data', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
-function ($scope, $stateParams) {
+function ($scope, $stateParams, Data) {
+	$scope.Data = Data;
+	
+	
 	$scope.null_ = "0,0";
 	$scope.eins = "9,9";
 	$scope.zwei = "19,0";
@@ -38,7 +44,7 @@ function ($scope, $stateParams) {
 	$scope.vierzehn = "90,0";
 	$scope.fuenfzehn = "94,4";
 	
-	
+	Data.FirstName = "Klaus die Maus";
 		
 		
 	

@@ -1,5 +1,6 @@
 <ion-view title="Notenpunkte-Schlüssel" id="page3">
   <ion-content padding="true" class="has-header">
+  <br>Input is : <strong>{{Data.FirstName}}</strong>
     <form id="notenpunkteSchlSsel-form6" class="list">
       <label class="item item-input" id="notenpunkteSchlSsel-input10">
         <span class="input-label">sehr gut - 15</span>
@@ -27,6 +28,10 @@
         <span class="input-label">gut - 10</span>
         <input ng-model="zehn" type="text" pattern="[0-9]*" placeholder="70,0">
       </label>
+	  <label class="item item-input" id="notenpunkteSchlSsel-input16">
+        <span class="input-label">gut - 10 (Factory)</span>
+        <input ng-model="Data.FirstName" type="text" pattern="[0-9]*" >
+	</label>
     </form>
     <form id="notenpunkteSchlSsel-form9" class="list">
       <label class="item item-input" id="notenpunkteSchlSsel-input17">

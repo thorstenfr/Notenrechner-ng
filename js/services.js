@@ -1,8 +1,9 @@
 angular.module('app.services', [])
 
-.factory('BlankFactory', [function(){
-
+.factory('Data', [function(){
+	return { FirstName: '' };
 }])
+
 
 .service('BlankService', [function(){
 
