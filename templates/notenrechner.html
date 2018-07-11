@@ -8,47 +8,35 @@
 	  {{((erreicht/grundlage)*100) | number:1}}%
 	  
     </h1>
-	
-    <form id="notenrechner-form4" class="list">
-      <label class="item item-input" id="notenrechner-input3">
-        <span class="input-label">Grundlage</span>
-        <input ng-click="grundlage = ''" ng-model="grundlage" type="text" pattern="[0-9]*" placeholder="30">
-      </label>
-      <label class="item item-input" id="notenrechner-input5">
-        <span class="input-label">Erreicht</span>
-        <input ng-click="erreicht = ''" ng-model="erreicht" type="text" pattern="[0-9]*" placeholder="30">
-      </label>
-    </form>
-	
-	
+		
 	<div class="row text-center">
-		<card  ng-click="erreicht = ''; isErreicht=true" class="card col-6">{{erreicht}}<br><small>Erreichte Punkte</small></card>
-		<card  ng-click="grundlage = ''; isErreicht=false" class="card col-6">{{grundlage}}<br><small>Grundlage</small></card>
+		<card  ng-class="isErreicht ? 'aktiv' : 'passiv'" ng-click="erreicht = ''; isErreicht=true" class="card col-6">{{erreicht}}<br><small>Erreichte Punkte</small></card>
+		<card  ng-class="isErreicht ? 'passiv' : 'aktiv'" ng-click="grundlage = ''; isErreicht=false" class="card col-6">{{grundlage}}<br><small>Grundlage</small></card>
 		
 	</div>
-
+	
 	<div class="row">
 		<button ng-click="isErreicht ? erreicht=erreicht + '7' : grundlage=grundlage +'7'" class="button col-3">7</button>
 		<button ng-click="isErreicht ? erreicht=erreicht + '8' : grundlage=grundlage +'8'" class="button col-3">8</button>
 		<button ng-click="isErreicht ? erreicht=erreicht + '9' : grundlage=grundlage +'9'" class="button col-3">9</button>
-		<button ng-click="erreicht = ''" class="button col-3">C</button>
+		<button ng-click="isErreicht ? erreicht = '' : grundlage = ''" class="button col-3">C</button>
 	</div>
 	<div class="row">
-		<button ng-click="erreicht = erreicht + '4'" class="button col-3">4</button>
-		<button ng-click="erreicht = erreicht + '5'" class="button col-3">5</button>
-		<button ng-click="erreicht = erreicht + '6'" class="button col-3">6</button>
-		<button ng-click="erreicht = erreicht.slice(0,-1)" class="button icon	ion-backspace col-3"></button>
+		<button ng-click="isErreicht ? erreicht=erreicht + '4' : grundlage=grundlage +'4'" class="button col-3">4</button>
+		<button ng-click="isErreicht ? erreicht=erreicht + '5' : grundlage=grundlage +'5'" class="button col-3">5</button>
+		<button ng-click="isErreicht ? erreicht=erreicht + '6' : grundlage=grundlage +'6'" class="button col-3">6</button>
+		<button ng-click="isErreicht ? erreicht=erreicht.slice(0,-1) : grundlage=grundlage.slice(0,-1)" class="button icon	ion-backspace col-3"></button>
 	</div>
 	<div class="row">
-		<button ng-click="erreicht = erreicht + '1'" class="button col-3">1</button>
-		<button ng-click="erreicht = erreicht + '2'" class="button col-3">2</button>
-		<button ng-click="erreicht = erreicht + '3'" class="button col-3">3</button>
-		<button ng-click="erreicht = '30'" class="button col-3">30</button>
+		<button ng-click="isErreicht ? erreicht=erreicht + '1' : grundlage=grundlage +'1'" class="button col-3">1</button>
+		<button ng-click="isErreicht ? erreicht=erreicht + '2' : grundlage=grundlage +'2'" class="button col-3">2</button>
+		<button ng-click="isErreicht ? erreicht=erreicht + '3' : grundlage=grundlage +'3'" class="button col-3">3</button>
+		<button ng-click="isErreicht ? erreicht = '30'  : grundlage='30'" class="button col-3">30</button>
 	</div>
 	<div class="row">
-		<button ng-click="erreicht = erreicht + '0'" class="button col-6">0</button>
-		<button ng-click="erreicht = erreicht + '.'" class="button col-3">,</button>
-		<button ng-click="erreicht =  '60'" class="button col-3">60</button>
+		<button ng-click="isErreicht ? erreicht = erreicht + '0' : grundlage=grundlage +'0' " class="button col-6">0</button>
+		<button ng-click="isErreicht ? erreicht = erreicht + '.' : grundlage = grundlage + '.'" class="button col-3">,</button>
+		<button ng-click="isErreicht ? erreicht =  '60' :  grundlage =  '60'" class="button col-3">60</button>
 	</div>
 	<ion-icon name="backspace"></ion-icon>
 	

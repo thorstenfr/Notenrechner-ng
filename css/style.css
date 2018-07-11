@@ -21,3 +21,12 @@
 .taste {
 	width : calc(90%/3);
 }
+
+.aktiv {
+	color: black;
+}
+
+.passiv {
+	color : grey;
+	
+}
