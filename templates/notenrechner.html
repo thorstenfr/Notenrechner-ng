@@ -1,12 +1,14 @@
 <ion-view title="Notenrechner" id="page1">
   <ion-content padding="true" class="has-header">
-    <div id="notenrechner-markdown1" style="text-align:center;" class="show-list-numbers-and-dots">
-      <p style="color:#000000;">Lies die Hilfe, um zu verstehem wie Notenrechner die Noten berechnet und entscheide selbst, ob das für dich passt</p>
-    </div>
-    <div class="list card" id="notenrechner-card21">
-      <ion-item id="notenrechner-list-item11">Linearer Notenschlüssel: {{(6-5*(erreicht/grundlage) | number:1)}}</ion-item>
-      <ion-item ng-model="notenpunkte" id="notenrechner-list-item12">Prozent-Notenpunkte: {{notenpunkte}}</ion-item>
-    </div>
+  
+	
+    <h1 style="text-align : center;" class="h1s">
+		{{notenpunkte}} Punkte<br>
+      Note {{(6-5*(erreicht/grundlage) | number:1)}}</br>
+	  {{((erreicht/grundlage)*100) | number:1}}%
+	  
+    </h1>
+	
     <form id="notenrechner-form4" class="list">
       <label class="item item-input" id="notenrechner-input3">
         <span class="input-label">Grundlage</span>
