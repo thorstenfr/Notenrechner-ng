@@ -7,6 +7,12 @@ function ($scope, $stateParams) {
 	$scope.grundlage = 30;
 	$scope.erreicht = 15;
 	$scope.notenpunkte = 6;
+	
+	$scope.TasteClick = function(taste) {
+		console.log("Taste: " + $scope.erreicht);
+		$scope.erreicht=$scope.erreicht + taste.toString();
+		$scope.erreicht = 23;
+	}
 		
 
 }])
