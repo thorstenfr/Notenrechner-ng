@@ -1,21 +1,18 @@
 <ion-view title="Notenrechner" id="page1">
   <ion-content padding="true" class="has-header">
-  
-	
+
+
+
     <h1 style="text-align : center;" class="h1s">
-		{{notenpunkte}} Punkte<br>
-      Note {{(6-5*(erreicht/grundlage) | number:1)}}</br>
-	  {{((erreicht/grundlage)*100) | number:1}}%
-	  
+		{{((erreicht/grundlage)*100) | prozentFilter}} Punkte<br>
+      Note {{(6-5*(erreicht/grundlage) | number:1)}}
+	  <div>{{((erreicht/grundlage)*100) | number:1}}%</div>
     </h1>
-	
-	<p><strong>Factory: {{Data.FirstName}}</strong></p>
-		
 	<div class="row text-center">
-		<card  ng-class="isErreicht ? 'passiv' : 'aktiv'" ng-click="grundlage = ''; isErreicht=false" class="card col-6">{{grundlage}}<br><small>Grundlage</small></card>
-		<card  ng-class="isErreicht ? 'aktiv' : 'passiv'" ng-click="erreicht = ''; isErreicht=true" class="card col-6">{{erreicht}}<br><small>Erreichte Punkte</small></card>
+		<card  ng-class="isErreicht ? 'passiv' : 'aktiv'" ng-click="grundlage = ''; isErreicht=false" class="card col-6"><small>Beste Note vergeben ab:</small><br><b>{{grundlage}}</b></card>
+		<card  ng-class="isErreicht ? 'aktiv' : 'passiv'" ng-click="erreicht = ''; isErreicht=true" class="card col-6"><small>Erreichte Punkte:</small><br><b>{{erreicht}}</b></card>
 	</div>
-	
+
 	<div class="row">
 		<button ng-click="isErreicht ? erreicht=erreicht + '7' : grundlage=grundlage +'7'" class="button col-3">7</button>
 		<button ng-click="isErreicht ? erreicht=erreicht + '8' : grundlage=grundlage +'8'" class="button col-3">8</button>
@@ -40,9 +37,9 @@
 		<button ng-click="isErreicht ? erreicht =  '60' :  grundlage =  '60'" class="button col-3">60</button>
 	</div>
 	<ion-icon name="backspace"></ion-icon>
-	
-	
-	
+
+
+
 
     <div id="notenrechner-button-bar2" class="button-bar">
       <a ui-sref="notenrechner2()" id="notenrechner-button10" class="button button-positive button-block icon ion-ios-information-outline"></a>
