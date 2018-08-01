@@ -30,10 +30,6 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.directives
 
   if (!firstVisit) {
     var all = Data.all();
-    // $location.url('/tour');
-    console.log("Lade Daten");
-
-    console.log("Data: [" + all[1] + "]");
   }
 })
 

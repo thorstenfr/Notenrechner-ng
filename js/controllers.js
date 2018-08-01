@@ -13,9 +13,9 @@ function ($scope, $stateParams, Data, $ionicNavBarDelegate, $location) {
 	$scope.isErreicht = true;
 
 	var firstVisit = localStorage.getItem('firstVisit');
-console.log("(1) firstVisit im Comntroller: " + firstVisit);
+
   if (!firstVisit) {
-		console.log("(2) firstVisit im Comntroller: " + firstVisit);
+		// Lade default-Wert
 	$scope.Data.records =[
 				 {
 					 "Note" : "ungenügend",
@@ -96,42 +96,28 @@ console.log("(1) firstVisit im Comntroller: " + firstVisit);
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
 function ($scope, $stateParams, Data ) {
 	$scope.Data = Data;
-	console.log("Data: [" + $scope.Data + "]");
+	// Falls der erste Start, schreibe neuen Wert
 	var firstVisit = localStorage.getItem('firstVisit');
-  Data.firstVisit=firstVisit;
-  if (!firstVisit) {
+	if (!firstVisit) {
     // $location.url('/tour');
 		var now = new Date();
 		window.localStorage.setItem('firstVisit','Um: ' + now);
-
-
-
-
-
-
   }
-	else {
+	$scope.setDefault = function(kurs) {
+		window.localStorage.setItem('firstVisit','');
 
 	}
 
-
 	$scope.$on('$ionicView.leave', function(){
-
-	  // do all kind of stuff
-	//	console.log("Saving data ...");
-	console.log("Saving Data in notenpunkteSchlSselCtrl ... ");
-	Data.save($scope.Data.records);
-
-
+				console.log("Saving Data in notenpunkteSchlSselCtrl ... ");
+				Data.save($scope.Data.records);
 	});
-
-
 }])
 
 .controller('notenrechner2Ctrl', ['$scope', '$stateParams', 'Data', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
 function ($scope, $stateParams, Data) {
-	$scope.Data = Data;
+
 
 }])
