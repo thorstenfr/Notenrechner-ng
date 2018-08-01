@@ -7,9 +7,10 @@ angular.module('app.routes', [])
   // Set up the various states which the app can be in.
   // Each state's controller can be found in controllers.js
   $stateProvider
-    
 
-      .state('notenrechner', {
+
+
+  .state('notenrechner', {
     url: '/page1',
     templateUrl: 'templates/notenrechner.html',
     controller: 'notenrechnerCtrl'
@@ -27,7 +28,13 @@ angular.module('app.routes', [])
     controller: 'notenrechner2Ctrl'
   })
 
-$urlRouterProvider.otherwise('/page1')
+  .state('tour', {
+     url: '/tour',
+     templateUrl: 'views/tour/tour.html'
+   });
+
+ $urlRouterProvider.otherwise('/page1');
+
 
 
 });

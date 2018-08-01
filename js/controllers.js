@@ -1,119 +1,137 @@
 angular.module('app.controllers', [])
 
-.controller('notenrechnerCtrl', ['$scope', '$stateParams', 'Data', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+.controller('notenrechnerCtrl', ['$scope', '$stateParams', 'Data', '$ionicNavBarDelegate', '$location',   // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
-function ($scope, $stateParams, Data) {
+function ($scope, $stateParams, Data, $ionicNavBarDelegate, $location) {
+	// Data = DataStorage.all();
 	$scope.Data = Data;
- 	$scope.count = 0;
-	$scope.myFunc = function() {
-		console.log("changed");
-        $scope.count++;
-    };
-
-  Data.records = [
-         {
-           "Note" : "ungenügend",
-           "Prozent" : "0,0",
-           "Punkte" : "0"
-          },{
-            "Note" : "mangelhaft",
-            "Prozent" : "11,0",
-            "Punkte" : "1"
-          },{
-            "Note" : "mangelhaft",
-            "Prozent" : "19,0",
-            "Punkte" : "2"
-          },{
-            "Note" : "mangelhaft",
-            "Prozent" : "28,0",
-            "Punkte" : "3"
-          },{
-            "Note" : "ausreichend",
-            "Prozent" : "36,0",
-            "Punkte" : "4"
-          },{
-            "Note" : "ausreichend",
-            "Prozent" : "44,0",
-            "Punkte" : "5"
-          },{
-            "Note" : "ausreichend",
-            "Prozent" : "50,0",
-            "Punkte" : "6"
-          },{
-            "Note" : "befriedigend",
-            "Prozent" : "54,0",
-            "Punkte" : "7"
-          },{
-            "Note" : "befriedigend",
-            "Prozent" : "60,0",
-            "Punkte" : "8"
-          },{
-            "Note" : "befriedigend",
-            "Prozent" : "64,0",
-            "Punkte" : "9"
-          },{
-            "Note" : "gut",
-            "Prozent" : "70,0",
-            "Punkte" : "10"
-          },{
-            "Note" : "gut",
-            "Prozent" : "74,4",
-            "Punkte" : "11"
-          },{
-            "Note" : "gut",
-            "Prozent" : "80,0",
-            "Punkte" : "12"
-          },{
-            "Note" : "sehr gut",
-            "Prozent" : "84,4",
-            "Punkte" : "13"
-          },{
-            "Note" : "sehr gut",
-            "Prozent" : "90,0",
-            "Punkte" : "14"
-          },{
-            "Note" : "sehr gut",
-            "Prozent" : "94,4",
-            "Punkte" : "15"
-          }
-      ]
-
 
 	$scope.grundlage = 35;
 	$scope.erreicht = 20;
 	$scope.notenpunkte = 6;
 	$scope.isErreicht = true;
-	var erg_prozent = $scope.erreicht/$scope.grundlage*100;
-	var erreicht=$scope.erreicht;
-	var grundlage=$scope.grundlage;
 
-	$scope.TasteClick = function(taste) {
-		console.log("Taste: " + $scope.erreicht);
-		$scope.erreicht=$scope.erreicht + taste.toString();
-		$scope.erreicht = 23;
+	var firstVisit = localStorage.getItem('firstVisit');
+console.log("(1) firstVisit im Comntroller: " + firstVisit);
+  if (!firstVisit) {
+		console.log("(2) firstVisit im Comntroller: " + firstVisit);
+	$scope.Data.records =[
+				 {
+					 "Note" : "ungenügend",
+					 "Prozent" : "10",
+					 "Punkte" : "0"
+					},{
+						"Note" : "mangelhaft",
+						"Prozent" : "11",
+						"Punkte" : "1"
+					},{
+						"Note" : "mangelhaft",
+						"Prozent" : "19",
+						"Punkte" : "2"
+					},{
+						"Note" : "mangelhaft",
+						"Prozent" : "28",
+						"Punkte" : "3"
+					},{
+						"Note" : "ausreichend",
+						"Prozent" : "36",
+						"Punkte" : "4"
+					},{
+						"Note" : "ausreichend",
+						"Prozent" : "44",
+						"Punkte" : "5"
+					},{
+						"Note" : "ausreichend",
+						"Prozent" : "50",
+						"Punkte" : "6"
+					},{
+						"Note" : "befriedigend",
+						"Prozent" : "54",
+						"Punkte" : "7"
+					},{
+						"Note" : "befriedigend",
+						"Prozent" : "60",
+						"Punkte" : "8"
+					},{
+						"Note" : "befriedigend",
+						"Prozent" : "64",
+						"Punkte" : "9"
+					},{
+						"Note" : "gut",
+						"Prozent" : "70",
+						"Punkte" : "10"
+					},{
+						"Note" : "gut",
+						"Prozent" : "74",
+						"Punkte" : "11"
+					},{
+						"Note" : "gut",
+						"Prozent" : "80",
+						"Punkte" : "12"
+					},{
+						"Note" : "sehr gut",
+						"Prozent" : "84",
+						"Punkte" : "13"
+					},{
+						"Note" : "sehr gut",
+						"Prozent" : "90",
+						"Punkte" : "14"
+					},{
+						"Note" : "sehr gut",
+						"Prozent" : "94",
+						"Punkte" : "15"
+					}
+			]
+		}
+		else {
+			console.log("Lade Daten!!!");
+			$scope.Data.records = Data.all();
+		}
+
+}])
+
+.controller('notenpunkteSchlSselCtrl', ['$scope', '$stateParams', 'Data',  // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+// You can include any angular dependencies as parameters for this function
+// TIP: Access Route Parameters for your page via $stateParams.parameterName
+function ($scope, $stateParams, Data ) {
+	$scope.Data = Data;
+	console.log("Data: [" + $scope.Data + "]");
+	var firstVisit = localStorage.getItem('firstVisit');
+  Data.firstVisit=firstVisit;
+  if (!firstVisit) {
+    // $location.url('/tour');
+		var now = new Date();
+		window.localStorage.setItem('firstVisit','Um: ' + now);
+
+
+
+
+
+
+  }
+	else {
+
 	}
 
 
+	$scope.$on('$ionicView.leave', function(){
 
+	  // do all kind of stuff
+	//	console.log("Saving data ...");
+	console.log("Saving Data in notenpunkteSchlSselCtrl ... ");
+	Data.save($scope.Data.records);
+
+
+	});
 
 
 }])
 
-.controller('notenpunkteSchlSselCtrl', ['$scope', '$stateParams', 'Data', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+.controller('notenrechner2Ctrl', ['$scope', '$stateParams', 'Data', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
 function ($scope, $stateParams, Data) {
 	$scope.Data = Data;
-
-
-
-}])
-
-.controller('notenrechner2Ctrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
-// You can include any angular dependencies as parameters for this function
-// TIP: Access Route Parameters for your page via $stateParams.parameterName
-function ($scope, $stateParams) {
-
 
 }])

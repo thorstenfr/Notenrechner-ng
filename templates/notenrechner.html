@@ -1,12 +1,12 @@
-<ion-view title="Notenrechner!" id="page1">
+<ion-view title="Notenrechner" id="page1">
   <ion-content padding="true" class="has-header has-footer">
-
 
 
     <h2 style="text-align : center;" class="h1s">
 		{{((erreicht/grundlage)*100) | prozentFilter}} Punkte<br>
-      Note {{(6-5*(erreicht/grundlage) | number:1)}}
-	  <div>{{((erreicht/grundlage)*100) | number:1}}%</div>
+      Note {{(6-5*(erreicht/grundlage)) | number:1}} <br>
+
+	  <div>{{((erreicht/grundlage)*100) | number:1}} %</div>
   </h2>
 	<div class="row text-center">
 		<card  ng-class="isErreicht ? 'passiv' : 'aktiv'" ng-click="grundlage = ''; isErreicht=false" class="card col-6"><small>Beste Note vergeben ab:</small><br><b>{{grundlage}}</b></card>
@@ -47,7 +47,7 @@
       <!-- <a ui-sref="notenpunkteSchlSsel()" id="notenrechner-button11" class="button button-positive button-block icon ion-document"></a> -->
       <a ui-sref="notenrechner2()"  class="tab-item">
         <i class="icon ion-ios-information-outline"></i>
-          Bedienungshinweise
+          Berechnungshinweise
         </a>
 			<a ui-sref="notenpunkteSchlSsel()"  class="tab-item" >
   			<i class="icon ion-document"></i>
