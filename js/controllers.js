@@ -29,6 +29,8 @@ function ($scope, $rootScope, $stateParams, Data, $ionicNavBarDelegate, $locatio
 
   if (!firstVisit) {
 		// Lade default-Wert
+		Data.loadDefault();
+
 	$scope.Data.records =[
 				 {
 					 "Note" : "ungenügend",
@@ -119,6 +121,75 @@ function ($scope, $rootScope, $stateParams, Data ) {
   }
 	$scope.setDefault = function(kurs) {
 		window.localStorage.setItem('firstVisit','');
+		$scope.Data.records =[
+					 {
+						 "Note" : "ungenügend",
+						 "Prozent" : "10",
+						 "Punkte" : "0"
+						},{
+							"Note" : "mangelhaft",
+							"Prozent" : "11",
+							"Punkte" : "1"
+						},{
+							"Note" : "mangelhaft",
+							"Prozent" : "19",
+							"Punkte" : "2"
+						},{
+							"Note" : "mangelhaft",
+							"Prozent" : "28",
+							"Punkte" : "3"
+						},{
+							"Note" : "ausreichend",
+							"Prozent" : "36",
+							"Punkte" : "4"
+						},{
+							"Note" : "ausreichend",
+							"Prozent" : "44",
+							"Punkte" : "5"
+						},{
+							"Note" : "ausreichend",
+							"Prozent" : "50",
+							"Punkte" : "6"
+						},{
+							"Note" : "befriedigend",
+							"Prozent" : "54",
+							"Punkte" : "7"
+						},{
+							"Note" : "befriedigend",
+							"Prozent" : "60",
+							"Punkte" : "8"
+						},{
+							"Note" : "befriedigend",
+							"Prozent" : "64",
+							"Punkte" : "9"
+						},{
+							"Note" : "gut",
+							"Prozent" : "70",
+							"Punkte" : "10"
+						},{
+							"Note" : "gut",
+							"Prozent" : "74",
+							"Punkte" : "11"
+						},{
+							"Note" : "gut",
+							"Prozent" : "80",
+							"Punkte" : "12"
+						},{
+							"Note" : "sehr gut",
+							"Prozent" : "84",
+							"Punkte" : "13"
+						},{
+							"Note" : "sehr gut",
+							"Prozent" : "90",
+							"Punkte" : "14"
+						},{
+							"Note" : "sehr gut",
+							"Prozent" : "94",
+							"Punkte" : "15"
+						}
+				]
+				Data.save($scope.Data.records);
+
 
 	}
 
@@ -128,6 +199,8 @@ function ($scope, $rootScope, $stateParams, Data ) {
 				Data.save($scope.Data.records);
 
 	});
+
+	
 }])
 
 .controller('notenrechner2Ctrl', ['$scope', '$stateParams', 'Data', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
