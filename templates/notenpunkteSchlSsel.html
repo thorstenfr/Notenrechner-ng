@@ -1,16 +1,41 @@
 <ion-view title="Notenpunkte-Schlüssel" id="page3">
   <ion-content padding="true">
 
-    <button ng-click="setDefault()">Zurücksetzen</button>
-    <form class="list">
-      <label ng-repeat="r in Data.records | orderBy:'-'" class="item item-input" id="notenpunkteSchlSsel-input10">
+    
+    <button class="button" ng-click="setDefault()">Zurücksetzen</button>
 
-        <span class="input-label">{{r.Note}} - {{r.Punkte}}</span>
+
+    <div class="list" ng-repeat="r in Data.records | orderBy:'-'">
+      <label class="item item-input">
+        <span class="input-label">Note</span>
+        <input ng-model="r.Note" type="text"  placeholder={{r.Note}}>
+      </label>
+      <label class="item item-input">
+        <span class="input-label">Notenpunkte</span>
+        <input ng-model="r.Punkte" type="text"  placeholder={{r.Punkte}}>
+      </label>
+      <label class="item item-input">
+          <span class="input-label">ab Prozent</span>
+          <input ng-model="r.Prozent" type="text" pattern="[0-9]*" placeholder={{r.Prozent}}>
+        </label>
+    </div>
+
+<!--
+    <form class="list" ng-repeat="r in Data.records | orderBy:'-'">
+        <label  class="item item-input">
+        <input ng-model="r.Note" type="text"  placeholder={{r.Note}}>
+        </label>
+        <label class="item item-input">
+        <input ng-model="r.Punkte" type="text"  placeholder={{r.Punkte}}>
+        </label>
+        <label class="item item-input">
 
         <input ng-model="r.Prozent" type="text" pattern="[0-9]*" placeholder={{r.Prozent}}>
       </label>
 
     </form>
+-->
+
 
 
   </ion-content>

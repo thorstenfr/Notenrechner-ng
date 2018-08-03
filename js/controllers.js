@@ -1,11 +1,13 @@
 angular.module('app.controllers', [])
 
-.controller('notenrechnerCtrl', ['$scope', '$stateParams', 'Data', '$ionicNavBarDelegate', '$location',   // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+.controller('notenrechnerCtrl', ['$scope', '$rootScope', '$stateParams', 'Data', '$ionicNavBarDelegate', '$location',   // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
-function ($scope, $stateParams, Data, $ionicNavBarDelegate, $location) {
+function ($scope, $rootScope, $stateParams, Data, $ionicNavBarDelegate, $location) {
 	// Data = DataStorage.all();
 	$scope.Data = Data;
+
+
 
 	$scope.grundlage = 35;
 	$scope.erreicht = 20;
@@ -13,6 +15,17 @@ function ($scope, $stateParams, Data, $ionicNavBarDelegate, $location) {
 	$scope.isErreicht = true;
 
 	var firstVisit = localStorage.getItem('firstVisit');
+
+	$scope.loadNewFilter = function (){
+	    $scope.filter = [1,2,3];
+	    $scope.$apply();
+	}
+
+	$scope.$on('$ionicView.enter', function(){
+  	// Anything you can think of
+		$rootScope.istNotenrechner = true;
+		//location.reload();
+	});
 
   if (!firstVisit) {
 		// Lade default-Wert
@@ -91,11 +104,12 @@ function ($scope, $stateParams, Data, $ionicNavBarDelegate, $location) {
 
 }])
 
-.controller('notenpunkteSchlSselCtrl', ['$scope', '$stateParams', 'Data',  // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+.controller('notenpunkteSchlSselCtrl', ['$scope', '$rootScope', '$stateParams', 'Data',  // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
-function ($scope, $stateParams, Data ) {
+function ($scope, $rootScope, $stateParams, Data ) {
 	$scope.Data = Data;
+	$rootScope.istNotenrechner = false;
 	// Falls der erste Start, schreibe neuen Wert
 	var firstVisit = localStorage.getItem('firstVisit');
 	if (!firstVisit) {
@@ -109,8 +123,10 @@ function ($scope, $stateParams, Data ) {
 	}
 
 	$scope.$on('$ionicView.leave', function(){
+
 				console.log("Saving Data in notenpunkteSchlSselCtrl ... ");
 				Data.save($scope.Data.records);
+
 	});
 }])
 

@@ -1,9 +1,8 @@
-<ion-view title="Notenrechner" id="page1">
+<ion-view title="Notenrechner" id="page1" ng-hide="0">
   <ion-content padding="true" class="has-header has-footer">
 
-
     <h2 style="text-align : center;" class="h1s">
-		{{((erreicht/grundlage)*100) | prozentFilter}} Punkte<br>
+		{{((erreicht/grundlage)*100) | prozentFilterStateful}} Punkte<br>
       Note {{(6-5*(erreicht/grundlage)) | number:1}} <br>
 
 	  <div>{{((erreicht/grundlage)*100) | number:1}} %</div>
