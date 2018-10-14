@@ -1,61 +1,65 @@
-<ion-view title="Notenrechner" id="page1" ng-hide="0">
-  <ion-content padding="true" class="has-header has-footer">
 
-    <h2 style="text-align : center;" class="h1s">
-		{{((erreicht/grundlage)*100) | prozentFilterStateful}} Punkte<br>
-        Note {{(6-5*(erreicht/grundlage)) | number:1}} <br>
+<ion-view hide-back-button="true" title="" id="page1" ng-hide="0" hide-nav-bar="true">
 
-	  <div>{{((erreicht/grundlage)*100) | number:1}} %</div>
-  </h2>
-	<div class="row text-center">
-		<card  ng-class="isErreicht ? 'passiv' : 'aktiv'" ng-click="grundlage = ''; isErreicht=false" class="card col-6"><small>Beste Note vergeben ab:</small><br><b>{{grundlage}}</b></card>
-		<card  ng-class="isErreicht ? 'aktiv' : 'passiv'" ng-click="erreicht = ''; isErreicht=true" class="card col-6"><small>Erreichte Punkte:</small><br><b>{{erreicht}}</b></card>
+ <ion-nav-buttons side="secondary">
+      <button class="button button-clear icon ion-alert my-button" ng-click="modal.show()">
+	  </button>
+	  </ion-nav-buttons>
+
+  <ion-content padding="true" has-header="false">
+
+
+  <div class="row">
+	  <div class="col" style="padding-top : 0;">   <button class="button-icon ion-android-menu tastatur" ng-click="modal.show()">
+	  </button>   </div>
+  	<div class="col col-50" style="line-height: 1.1; font-size : 2.5em; text-align : center;  border : 0; padding-top : 0;"    >   {{((Data.erreicht/Data.grundlage)*100) | prozentFilterStateful}}{{Data.records[Data.activeRecord].Punkte}} Punkte<br>
+        Note {{(6-5*(Data.erreicht/Data.grundlage)) < 1 ? 1 : (6-5*(Data.erreicht/Data.grundlage)) | number:1}} <br>
+
+		<div>{{((Data.erreicht/Data.grundlage)*100) | number:1}} %</div>    </div>
+    <div class="col" ><div id="box"  ng-if="(6-5*(Data.erreicht/Data.grundlage)) < 1"><p><b>Achtung!</b></p> 
+    <p>Bitte Wert für {{Data.tutorial().erreicht}} prüfen!</p>  
+
+</div></div>
+</div>
+  
+
+
+  
+  
+	<div class="row text-center" style="font-size : 1.5em; ">
+		<card  ng-class="isErreicht ? 'passiv' : 'aktiv'" ng-click="Data.grundlage = ''; isErreicht=false" class="card col-6"><small>Beste Note vergeben ab:</small><br><b>{{Data.grundlage ? Data.grundlage : 0}}</b></card>
+		<card  ng-class="isErreicht ? 'aktiv' : 'passiv'" ng-click="Data.erreicht = ''; isErreicht=true" class="card col-6"><small>{{Data.tutorial().erreicht}}:</small><br><b>{{Data.erreicht ? Data.erreicht : 0 }}</b></card>
+		 
 	</div>
 
-	<div class="row">
-		<button ng-click="isErreicht ? erreicht=erreicht + '7' : grundlage=grundlage +'7'" class="button col-3">7</button>
-		<button ng-click="isErreicht ? erreicht=erreicht + '8' : grundlage=grundlage +'8'" class="button col-3">8</button>
-		<button ng-click="isErreicht ? erreicht=erreicht + '9' : grundlage=grundlage +'9'" class="button col-3">9</button>
-		<button ng-click="isErreicht ? erreicht = '' : grundlage = ''" class="button col-3">C</button>
+	<div class="row" >
+		<button ng-click="isErreicht ? Data.erreicht=Data.erreicht + '7' : Data.grundlage=Data.grundlage +'7'" class="button col-3 tastatur">7</button>
+		<button ng-click="isErreicht ? Data.erreicht=Data.erreicht + '8' : Data.grundlage=Data.grundlage +'8'" class="button col-3 tastatur">8</button>
+		<button ng-click="isErreicht ? Data.erreicht=Data.erreicht + '9' : Data.grundlage=Data.grundlage +'9'" class="button col-3 tastatur">9</button>
+		<button ng-click="isErreicht ? Data.erreicht = '' : Data.grundlage = ''" class="button col-3 tastatur">C</button>
 	</div>
 	<div class="row">
-		<button ng-click="isErreicht ? erreicht=erreicht + '4' : grundlage=grundlage +'4'" class="button col-3">4</button>
-		<button ng-click="isErreicht ? erreicht=erreicht + '5' : grundlage=grundlage +'5'" class="button col-3">5</button>
-		<button ng-click="isErreicht ? erreicht=erreicht + '6' : grundlage=grundlage +'6'" class="button col-3">6</button>
-		<button ng-click="isErreicht ? erreicht=erreicht.slice(0,-1) : grundlage=grundlage.slice(0,-1)" class="button icon	ion-backspace col-3"></button>
+		<button ng-click="isErreicht ? Data.erreicht=Data.erreicht + '4' : Data.grundlage=Data.grundlage +'4'" class="button col-3 tastatur">4</button>
+		<button ng-click="isErreicht ? Data.erreicht=Data.erreicht + '5' : Data.grundlage=Data.grundlage +'5'" class="button col-3 tastatur">5</button>
+		<button ng-click="isErreicht ? Data.erreicht=Data.erreicht + '6' : Data.grundlage=Data.grundlage +'6'" class="button col-3 tastatur">6</button>
+		<button ng-click="isErreicht ? Data.erreicht=Data.erreicht.slice(0,-1) : Data.grundlage=Data.grundlage.slice(0,-1)" class="button icon	ion-backspace col-3 tastatur"></button>
 	</div>
 	<div class="row">
-		<button ng-click="isErreicht ? erreicht=erreicht + '1' : grundlage=grundlage +'1'" class="button col-3">1</button>
-		<button ng-click="isErreicht ? erreicht=erreicht + '2' : grundlage=grundlage +'2'" class="button col-3">2</button>
-		<button ng-click="isErreicht ? erreicht=erreicht + '3' : grundlage=grundlage +'3'" class="button col-3">3</button>
-		<button ng-click="isErreicht ? erreicht = '30'  : grundlage='30'" class="button col-3">30</button>
+		<button ng-click="isErreicht ? Data.erreicht=Data.erreicht + '1' : Data.grundlage=Data.grundlage +'1'" class="button col-3 tastatur">1</button>
+		<button ng-click="isErreicht ? Data.erreicht=Data.erreicht + '2' : Data.grundlage=Data.grundlage +'2'" class="button col-3 tastatur">2</button>
+		<button ng-click="isErreicht ? Data.erreicht=Data.erreicht + '3' : Data.grundlage=Data.grundlage +'3'" class="button col-3 tastatur">3</button>
+		<button ng-click="isErreicht ? Data.erreicht = '30'  : Data.grundlage='30'" class="button col-3 tastatur">30</button>
 	</div>
 	<div class="row">
-		<button ng-click="isErreicht ? erreicht = erreicht + '0' : grundlage=grundlage +'0' " class="button col-6">0</button>
-		<button ng-click="isErreicht ? erreicht = erreicht + '.' : grundlage = grundlage + '.'" class="button col-3">,</button>
-		<button ng-click="isErreicht ? erreicht =  '60' :  grundlage =  '60'" class="button col-3">60</button>
+		<button ng-click="isErreicht ? Data.erreicht = Data.erreicht + '0' : Data.grundlage=Data.grundlage +'0' " class="button col-6 tastatur">0</button>
+		<button ng-click="isErreicht ? Data.erreicht = Data.erreicht + '.' : Data.grundlage = Data.grundlage + '.'" class="button col-3 tastatur">,</button>
+		<button ng-click="isErreicht ? erreicht =  '60' :  Data.grundlage =  '60'" class="button col-3 tastatur">60</button>
 	</div>
 	<ion-icon name="backspace"></ion-icon>
 
 </ion-content>
 
-	<div class="tabs tabs-icon-left">
-    <!-- <div id="notenrechner-button-bar2" class="button-bar"> -->
-      <!-- <a ui-sref="notenrechner2()" id="notenrechner-button10" class="button button-positive button-block icon ion-ios-information-outline"></a> -->
 
-      <!-- <a ui-sref="notenpunkteSchlSsel()" id="notenrechner-button11" class="button button-positive button-block icon ion-document"></a> -->
-      <a ui-sref="notenrechner2()"  class="tab-item">
-        <i class="icon ion-ios-information-outline"></i>
-          Berechnungshinweise
-        </a>
-			<a ui-sref="notenpunkteSchlSsel()"  class="tab-item" >
-  			<i class="icon ion-document"></i>
-  			Notenpunkte-Schlüssel
-			</a>
-
-
-
-    </div>
 
 
 

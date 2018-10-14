@@ -7,7 +7,8 @@ angular.module('app.services', [])
 */
 .factory('Data', [function(){
     return {
-        all: function() {
+    
+    	all: function() {
             var dataString = window.localStorage['data'];
             if(dataString) {
                 return angular.fromJson(dataString);
@@ -24,6 +25,12 @@ angular.module('app.services', [])
 						Note : '',
 						Prozent : '',
 						Punkte : ''
+					}
+				},
+				tutorial: function() {
+					return {
+						grundlage : 'Beste Note bei',
+						erreicht : 'Erreicht'
 					}
 				},
         loadDefault: function() {
@@ -99,6 +106,8 @@ angular.module('app.services', [])
         }
     }
 }])
+
+
 
 
 .service('BlankService', [function(){

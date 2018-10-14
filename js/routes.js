@@ -28,12 +28,19 @@ angular.module('app.routes', [])
     controller: 'notenrechner2Ctrl'
   })
 
+  .state('einf', {
+    url: '/einf',
+    templateUrl: 'templates/einf.html'
+  })
+
+  
   .state('tour', {
      url: '/tour',
-     templateUrl: 'views/tour/tour.html'
+     templateUrl: 'views/tour/tour.html',
+     controller: 'tourCtrl'
    });
 
- $urlRouterProvider.otherwise('/page1');
+ $urlRouterProvider.otherwise('/einf');
 
 
 

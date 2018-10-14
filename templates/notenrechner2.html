@@ -1,7 +1,11 @@
-<ion-view title="Berechnungshinweise" id="page4">
+<ion-view title="Berechnungshinweise" id="page4" animation="no-animation">
   <ion-content padding="true" class="has-header">
 
     <h2 id="notenrechner2-heading1" style="color:#000000;">Berechnungshinweise</h2>
+	<a ui-sref="notenrechner" ui-sref-active="active">Hello</a>
+	 <button class="button button-positive" ng-click="modal.hide()" ui-sref="notenrechner()">
+			      <i class="icon ion-ios-information-outline"></i>
+			  </button>
 
     <p class="wichtig">Alle Berechnungen erfolgen ohne Gewähr!</p>
     <h4 id="notenrechner2-heading3" style="color:#000000;">Berechnung nach dem linearen Notenschlüssel</h4>

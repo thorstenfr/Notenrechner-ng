@@ -1,0 +1,28 @@
+<ion-modal-view>
+<ion-header-bar class="bar bar-header bar-positive">
+	<h1 class="title">Menü</h1>
+          <button class="button button-clear button-primary" ng-click="modal.hide()">Abbruch</button>
+</ion-header-bar>
+<ion-content class="padding">
+		
+
+         <div class="list">
+
+			<div class="item item-button-right">
+			    Berechnungshinweise
+			    <button class="button button-positive" ng-click="modal.hide()" ui-sref="notenrechner2()">
+			      <i class="icon ion-ios-information-outline"></i>
+			    </button>
+			</div>
+			<div class="item item-button-right">
+			    Notenpunkte-Schlüssel
+			    <button class="button button-positive" ng-click="modal.hide()" ui-sref="notenpunkteSchlSsel()">
+			      <i class="icon ion-compose"></i>
+			    </button>
+			</div>
+		</div>
+        </ion-content>
+	</ion-modal-view>
+
+	
+	

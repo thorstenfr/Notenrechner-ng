@@ -65,16 +65,23 @@ angular.module('app.filters', ['ionic'])
   function prozentFilterStateful(input) {
 
     var pct = 0.0;
+    var note;
+    var rnr;
+    Data.activeRecord=0;
 
 		for (var i in Data.records) {
 					 if (input >= parseFloat(Data.records[i].Prozent))   {
 						if (parseFloat(Data.records[i].Punkte)>pct) {
 							pct=parseFloat(Data.records[i].Punkte);
+								note=Data.records[i].Note;
+									Data.activeRecord=i;
 
 						}
 					 }
 					}
-          return pct;
+        // return pct + " Punkte (" + note + ")";
+        return;
+        
  	}
 
   prozentFilterStateful.$stateful = true;

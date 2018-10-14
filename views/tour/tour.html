@@ -1,19 +1,104 @@
-<ion-view view-title="Welcome to Aloha Resort" id="tour-view">
+<ion-view view-title="Willkommen beim Notenrechner" id="tour-view">
+
   <ion-nav-buttons side="right">
-    <a class="button button-clear" href="#/home" nav-clear>Start</a>
+    <a class="button button-clear" href="#/page1">Start</a>
   </ion-nav-buttons>
-  <ion-slide-box show-pager="true">
-    <ion-slide>
-      <span class="icon icon-slide ion-document-text"></span>
-      <h3>See your reservation</h3>
-    </ion-slide>
-    <ion-slide>
-      <span class="icon icon-slide ion-fork"></span>
-      <h3>Find local restaurants</h3>
-    </ion-slide>
-    <ion-slide>
-      <span class="icon icon-slide ion-ios-sunny"></span>
-      <h3>Get the weather</h3>
-    </ion-slide>
+  
+ <ion-slide-box show-pager="true">
+  
+  <ion-slide>
+      <span class="icon icon-slide ion-ios-calculator"></span>
+      <h3>Der Notenrechner berechnet die erreichte Note und die Notenpunkte.</h3>
+      <a href="#/page1">Einführung überspringen!</a>
+ </ion-slide>
+  
+  
+  <ion-slide>
+      
+      <h3>Der Notenrechner xberechnet die erreichte Note und die Notenpunkte.</h3>
+
+      <img style="border : 1px solid black;" src="img/IMG_0019.JPG" alt="Bedienungshinweise" height="50%;">
+      
+	<br />      
+      <a href="#/page1">Los geht´s!</a>
+      
+      
+ </ion-slide>
+  
+  <ion-slide>
+  <div class="wichtig">
+  </div>
+  
+ <h3>Wann gibt's eine 1?!</h3>
+  <h3>In das Kästchen <code>{{Data.tutorial().grundlage}} </code>klicken und die notwendigen Korrekturpunkte eingeben.</h3>
+  
+   <div class="row text-center">
+		<card  ng-class="'aktiv'" ng-click="Data.grundlage = ''; isErreicht=false" class="card col-6">
+			<small>{{Data.tutorial().grundlage}}</small><br>
+			<b>
+				<input class="aktiv" ng-model="Data.grundlage" type="text" pattern="[0-9]*"  placeholder="{{Data.grundlage}}"/>
+			</b>
+		</card>
+		<card  ng-class="isErreicht ? 'aktiv' : 'passiv'" ng-click="Data.erreicht = ''; isErreicht=true" class="card col-6"><small>{{Data.tutorial().erreicht}}: </small><br><b>{{Data.erreicht}}</b></card>
+	</div>
+	
+	  </ion-slide>
+	  
+	  <ion-slide>
+	  <h3>Wieviele Punkte hat der Schüler erreicht?</h3>
+  
+ 	 <h3>In das Kästchen <code>{{Data.tutorial().erreicht}} </code>klicken und die erreichten Korrekturpunkte eingeben.</h3>
+ 	 
+ 	 
+  
+   <div class="row text-center">
+		<card  ng-class="'passiv'" ng-click="Data.grundlage = ''; isErreicht=false" class="card col-6">
+			<small>{{Data.tutorial().grundlage}}</small><br>
+			<b>
+				{{Data.grundlage}}
+			</b>
+		</card>
+		<card  ng-class="'aktiv'" ng-click="Data.erreicht = ''; isErreicht=true" class="card col-6"><small>{{Data.tutorial().erreicht}}:</small><br><b>
+		
+		<input class="aktiv" ng-model="Data.erreicht" type="text" pattern="[0-9]*"  placeholder="{{Data.erreicht}}"/>
+		
+		</b></card>
+	</div>
+	
+	  </ion-slide>
+	  
+	  <ion-slide>
+	  <h3>Note berechnet nach dem linearrn Notenschlüssel</h3>
+	  
+	  	<h2> {{(6-5*(Data.erreicht/Data.grundlage)) | number:1}} <br></h2>
+	  
+	  </ion-slide>
+	  
+	  
+	  
+	 <!-- 
+	  <ion-slide>
+  
+  <h3>In das Kästchen <code>{{Data.tutorial().erreicht}} </code>klicken und die erreichten Korrekturpunkte eingeben.</h3>
+  
+   <div class="row text-center">
+		<card  ng-class="'aktiv'" ng-click="Data.grundlage = ''; isErreicht=false" class="card col-6">
+			<small>{{Data.tutorial().grundlage}}</small><br>
+			<b>
+				<input class="aktiv" ng-model="Data.grundlage" type="text" pattern="[0-9]*"  placeholder="{{Data.grundlade}}"/>
+			</b>
+		</card>
+		<card  ng-class="aktiv" ng-click="Data.erreicht = ''; isErreicht=true" class="card col-6"><small>Erreichte Punkte:</small><br><b><input class="aktiv" ng-model="Data.erreicht" type="text" pattern="[0-9]*"  placeholder="{{Data.erreicht}}"/><b></card>
+	</div>
+	
+	  </ion-slide>
+  
+    -->
+    
+    
+   
+
   </ion-slide-box>
+  
+
 </ion-view>
