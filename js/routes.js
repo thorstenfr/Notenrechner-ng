@@ -7,41 +7,45 @@ angular.module('app.routes', [])
   // Set up the various states which the app can be in.
   // Each state's controller can be found in controllers.js
   $stateProvider
+    
 
-
-
-  .state('notenrechner', {
+      .state('menu.notenrechner', {
     url: '/page1',
-    templateUrl: 'templates/notenrechner.html',
-    controller: 'notenrechnerCtrl'
+    views: {
+      'side-menu21': {
+        templateUrl: 'templates/notenrechner.html',
+        controller: 'notenrechnerCtrl'
+      }
+    }
   })
 
-  .state('notenpunkteSchlSsel', {
+  .state('menu.berechnungshinweise', {
+    url: '/page2',
+    views: {
+      'side-menu21': {
+        templateUrl: 'templates/berechnungshinweise.html',
+        controller: 'berechnungshinweiseCtrl'
+      }
+    }
+  })
+
+  .state('menu.notenpunkteSchlSsel', {
     url: '/page3',
-    templateUrl: 'templates/notenpunkteSchlSsel.html',
-    controller: 'notenpunkteSchlSselCtrl'
+    views: {
+      'side-menu21': {
+        templateUrl: 'templates/notenpunkteSchlSsel.html',
+        controller: 'notenpunkteSchlSselCtrl'
+      }
+    }
   })
 
-  .state('notenrechner2', {
-    url: '/page4',
-    templateUrl: 'templates/notenrechner2.html',
-    controller: 'notenrechner2Ctrl'
+  .state('menu', {
+    url: '/side-menu21',
+    templateUrl: 'templates/menu.html',
+    controller: 'menuCtrl'
   })
 
-  .state('einf', {
-    url: '/einf',
-    templateUrl: 'templates/einf.html'
-  })
-
-  
-  .state('tour', {
-     url: '/tour',
-     templateUrl: 'views/tour/tour.html',
-     controller: 'tourCtrl'
-   });
-
- $urlRouterProvider.otherwise('/einf');
-
+$urlRouterProvider.otherwise('/side-menu21/page1')
 
 
 });

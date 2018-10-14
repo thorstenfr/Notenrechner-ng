@@ -1,5 +1,5 @@
 angular.module('app.controllers', [])
-
+  
 .controller('notenrechnerCtrl', ['$scope', '$rootScope', '$stateParams', 'Data', '$ionicNavBarDelegate', '$ionicModal', '$ionicActionSheet', '$location',   // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
@@ -147,6 +147,50 @@ function ($scope, $rootScope, $stateParams, Data, Config, $ionicModal, $ionicAct
 
 }])
 
+   
+.controller('berechnungshinweiseCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+// You can include any angular dependencies as parameters for this function
+// TIP: Access Route Parameters for your page via $stateParams.parameterName
+function ($scope, $stateParams) {
+
+
+}])
+
+.controller('tourCtrl', ['$scope', '$stateParams', 'Data', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+// You can include any angular dependencies as parameters for this function
+// TIP: Access Route Parameters for your page via $stateParams.parameterName
+function ($scope, $stateParams, Data) {
+	
+	$scope.Data = Data;
+	$scope.Tutorial = Data.tutorial();
+	
+	$scope.options = {
+  		loop: true,
+  		effect: 'fade',
+  		speed: 500,
+	}
+
+$scope.$on("$ionicSlides.sliderInitialized", function(event, data){
+  // data.slider is the instance of Swiper
+  $scope.slider = data.slider;
+});
+
+$scope.$on("$ionicSlides.slideChangeStart", function(event, data){
+  console.log('Slide change is beginning');
+});
+
+$scope.$on("$ionicSlides.slideChangeEnd", function(event, data){
+  // note: the indexes are 0-based
+  $scope.activeIndex = data.slider.activeIndex;
+  $scope.previousIndex = data.slider.previousIndex;
+});
+
+
+
+
+}])
+
+   
 .controller('notenpunkteSchlSselCtrl', ['$scope', '$rootScope', '$stateParams', 'Data',  // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
@@ -244,44 +288,12 @@ function ($scope, $rootScope, $stateParams, Data ) {
 	
 }])
 
-.controller('notenrechner2Ctrl', ['$scope', '$stateParams', 'Data', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+   
+.controller('menuCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
-function ($scope, $stateParams, Data) {
+function ($scope, $stateParams) {
 
 
 }])
-
-.controller('tourCtrl', ['$scope', '$stateParams', 'Data', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
-// You can include any angular dependencies as parameters for this function
-// TIP: Access Route Parameters for your page via $stateParams.parameterName
-function ($scope, $stateParams, Data) {
-	
-	$scope.Data = Data;
-	$scope.Tutorial = Data.tutorial();
-	
-	$scope.options = {
-  		loop: true,
-  		effect: 'fade',
-  		speed: 500,
-	}
-
-$scope.$on("$ionicSlides.sliderInitialized", function(event, data){
-  // data.slider is the instance of Swiper
-  $scope.slider = data.slider;
-});
-
-$scope.$on("$ionicSlides.slideChangeStart", function(event, data){
-  console.log('Slide change is beginning');
-});
-
-$scope.$on("$ionicSlides.slideChangeEnd", function(event, data){
-  // note: the indexes are 0-based
-  $scope.activeIndex = data.slider.activeIndex;
-  $scope.previousIndex = data.slider.previousIndex;
-});
-
-
-
-
-}])
+ 

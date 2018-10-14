@@ -1,10 +1,5 @@
 angular.module('app.services', [])
 
-/*
-.factory('Data', [function(){
-	return { FirstName: true };
-}])
-*/
 .factory('Data', [function(){
     return {
     
@@ -106,8 +101,6 @@ angular.module('app.services', [])
         }
     }
 }])
-
-
 
 
 .service('BlankService', [function(){
