@@ -191,10 +191,10 @@ $scope.$on("$ionicSlides.slideChangeEnd", function(event, data){
 }])
 
    
-.controller('notenpunkteSchlSselCtrl', ['$scope', '$rootScope', '$stateParams', 'Data',  // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+.controller('notenpunkteSchlSselCtrl', ['$scope', '$rootScope', '$stateParams',  '$ionicPopup', 'Data',  // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
-function ($scope, $rootScope, $stateParams, Data ) {
+function ($scope, $rootScope, $stateParams, $ionicPopup, Data ) {
 	$scope.Data = Data;
 	$rootScope.istNotenrechner = false;
 	// Falls der erste Start, schreibe neuen Wert
@@ -206,12 +206,7 @@ function ($scope, $rootScope, $stateParams, Data ) {
   	}
 	var isPro = localStorage.getItem('isPro');
 	
-	if (isPro=="true") {		
-		$scope.notPro = false;
-	}
-	else {
-		$scope.notPro = true;
-	}
+	
 	
 	
 	$scope.setDefault = function(kurs) {
@@ -287,6 +282,7 @@ function ($scope, $rootScope, $stateParams, Data ) {
 
 
 	}
+	
 
 	$scope.$on('$ionicView.leave', function(){
 
@@ -294,6 +290,28 @@ function ($scope, $rootScope, $stateParams, Data ) {
 				Data.save($scope.Data.records);
 
 	});
+	
+	$scope.buyPro = function() {
+	   var alertPopup = $ionicPopup.alert({
+	     title: 'Update to Pro-Version!',
+	     template: 'Erwerben Sie die Pro-Version (0,99€), um diese Meldung nicht mehr zu sehen und um den Punkte-Notenschlüssel individuell ändern zu können!'
+	   });
+	
+	   alertPopup.then(function(res) {
+	     console.log('Thank you for not buying my bienchen app');
+		 newStart=false;
+	      
+	   });
+   };
+   
+   if (isPro=="true") {		
+		$scope.notPro = false;
+	}
+	else {
+		$scope.notPro = true;
+		$scope.buyPro();
+	}
+	
 
 	
 }])
