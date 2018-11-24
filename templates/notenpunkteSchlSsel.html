@@ -1,3 +1,44 @@
 <ion-view title="Notenpunkte-Schlüssel" id="page3">
-  <ion-content padding="true" class="has-header"></ion-content>
+  <ion-content padding="true" class="has-header">
+  
+  
+  
+	  
+    <button ng-click="setDefault()" class="button button-full button-energized">
+       Änderungen verwerfen (Vorgabewerte laden)
+    </button>
+
+
+
+    <div class="list" ng-repeat="r in Data.records | orderBy:'-'">
+      <label class="item item-input">
+        <span class="input-label">Note</span>
+        <input ng-model="r.Note" type="text"  placeholder={{r.Note}}>
+      </label>
+      <label class="item item-input">
+        <span class="input-label">Notenpunkte</span>
+        <input ng-model="r.Punkte" type="text"  placeholder={{r.Punkte}}>
+      </label>
+      <label class="item item-input">
+          <span class="input-label">ab Prozent</span>
+          <input ng-model="r.Prozent" type="text" pattern="[0-9]*" placeholder={{r.Prozent}}>
+        </label>
+    </div>
+
+
+
+
+
+  </ion-content>
 </ion-view>
+
+  
+  
+  </ion-content>
+  
+  
+  
+  
+  
+</ion-view>
+
