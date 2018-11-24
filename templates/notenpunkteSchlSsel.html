@@ -8,20 +8,19 @@
        Änderungen verwerfen (Vorgabewerte laden)
     </button>
 
-
-
+	
     <div class="list" ng-repeat="r in Data.records | orderBy:'-'">
       <label class="item item-input">
         <span class="input-label">Note</span>
-        <input ng-model="r.Note" type="text"  placeholder={{r.Note}}>
+        <input ng-disabled="notPro" ng-model="r.Note" type="text"  placeholder={{r.Note}}>
       </label>
       <label class="item item-input">
         <span class="input-label">Notenpunkte</span>
-        <input ng-model="r.Punkte" type="text"  placeholder={{r.Punkte}}>
+        <input ng-disabled="notPro" ng-model="r.Punkte" type="text"  placeholder={{r.Punkte}}>
       </label>
       <label class="item item-input">
           <span class="input-label">ab Prozent</span>
-          <input ng-model="r.Prozent" type="text" pattern="[0-9]*" placeholder={{r.Prozent}}>
+          <input ng-disabled="notPro" ng-model="r.Prozent" type="text" pattern="[0-9]*" placeholder={{r.Prozent}}>
         </label>
     </div>
 

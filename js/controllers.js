@@ -203,7 +203,17 @@ function ($scope, $rootScope, $stateParams, Data ) {
     // $location.url('/tour');
 		var now = new Date();
 		window.localStorage.setItem('firstVisit','Um: ' + now);
-  }
+  	}
+	var isPro = localStorage.getItem('isPro');
+	
+	if (isPro=="true") {		
+		$scope.notPro = false;
+	}
+	else {
+		$scope.notPro = true;
+	}
+	
+	
 	$scope.setDefault = function(kurs) {
 		window.localStorage.setItem('firstVisit','');
 		$scope.Data.records =[
