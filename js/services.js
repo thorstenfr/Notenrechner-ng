@@ -28,6 +28,22 @@ angular.module('app.services', [])
 						erreicht : 'Erreicht'
 					}
 				},
+		getLastRun: function() {
+            return window.localStorage['nrFirstRun'] || '0';
+            
+        },
+		getRuns: function() {
+            return window.localStorage['nrRuns'] || '0';
+            
+        },
+		setRuns: function(anzahl) {
+            window.localStorage['nrRuns'] = anzahl;
+            
+        },
+		setFirstRun: function(wann) {
+            window.localStorage['nrFirstRun'] = wann;
+            
+        },
         loadDefault: function() {
           var data =[
       					 {
