@@ -1,9 +1,9 @@
 angular.module('app.controllers', [])
   
-.controller('notenrechnerCtrl', ['$scope', '$rootScope', '$stateParams', 'Data', '$ionicNavBarDelegate', '$ionicModal', '$ionicActionSheet', '$location',   // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+.controller('notenrechnerCtrl', ['$scope', '$rootScope', '$stateParams', 'Data', '$ionicNavBarDelegate', '$ionicModal', '$timeout', '$ionicPopup','$ionicActionSheet', '$location',   // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
-function ($scope, $rootScope, $stateParams, Data, Config, $ionicModal, $ionicActionSheet, $ionicNavBarDelegate, $location) {
+function ($scope, $rootScope, $stateParams, Data, Config, $ionicModal, $timeout, $ionicPopup,$ionicActionSheet, $ionicNavBarDelegate, $location) {
 	// Data = DataStorage.all();
 	
 	$scope.Data = Data;
@@ -25,30 +25,59 @@ function ($scope, $rootScope, $stateParams, Data, Config, $ionicModal, $ionicAct
 	
 	$scope.showActionsheet = function() {
     
-    $ionicActionSheet.show({
-      titleText: 'ActionSheet Example',
-      buttons: [
-        { text: '<i class="icon ion-share" ui-sref="notenrechner2()"></i> Share' },
-        { text: '<i class="icon ion-arrow-move"></i> Move' },
-      ],
-      destructiveText: 'Delete',
-      cancelText: 'Cancel',
-      cancel: function() {
-        console.log('CANCELLED');
-      },
-      buttonClicked: function(index) {
-        console.log('BUTTON CLICKED', index);
-		if (index==0) {
-			// ui-sref="notenrechner2()"
-		}
-        return true;
-      },
-      destructiveButtonClicked: function() {
-        console.log('DESTRUCT');
-        return true;
-      }
-    });
-};
+	    $ionicActionSheet.show({
+	      titleText: 'ActionSheet Example',
+	      buttons: [
+	        { text: '<i class="icon ion-share" ui-sref="notenrechner2()"></i> Share' },
+	        { text: '<i class="icon ion-arrow-move"></i> Move' },
+	      ],
+	      destructiveText: 'Delete',
+	      cancelText: 'Cancel',
+	      cancel: function() {
+	        console.log('CANCELLED');
+	      },
+	      buttonClicked: function(index) {
+	        console.log('BUTTON CLICKED', index);
+			if (index==0) {
+				// ui-sref="notenrechner2()"
+			}
+	        return true;
+	      },
+	      destructiveButtonClicked: function() {
+	        console.log('DESTRUCT');
+	        return true;
+	      }
+	    });
+	};
+	
+	
+	$scope.showHowto = function() {
+	   var alertPopup = $ionicPopup.alert({
+	     title: 'Notenberechnung verstehen',
+	     template: 'Öffnen Sie das Sidemenü und lesen Sie die <span style="font-weight : bold;">Brechnungshinweise</span>, um zu verstehen, wie der Notenrechner die Noten berechnet'
+	   });
+	
+	   alertPopup.then(function(res) {
+	     console.log('Thank you for not eating my delicious ice cream cone');
+	   });
+   };
+	
+	$scope.showWelcome = function() {
+	   var alertPopup = $ionicPopup.alert({
+	     title: 'Willkommen bei Notenrechner!',
+	     template: 'Tappen Sie auf <span style="font-weight : bold"> "Beste Note bei" </span>um die Berechnungsgrundlage einzugeben und auf <span style="font-weight : bold"> "Erreichte Punkte"  </span> um die erreichten Punkte einzugeben.'
+	   });
+	
+	   alertPopup.then(function(res) {
+	     console.log('Thank you for not eating my delicious ice cream cone');
+	     // 
+	   });
+   	};
+	
+	if (firstVisit) {
+		$scope.showWelcome();
+		
+	}
 	
 	
 	 // Load the modal from the given template URL
