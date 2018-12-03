@@ -8,7 +8,13 @@ function ($scope, $rootScope, $stateParams, Data, Config, $ionicModal, $timeout,
 	
 	$scope.Data = Data;
 	$scope.Tutorial = Data.tutorial();
+	const heute = new Date();
+	var firstRun = Data.getFirstRun();
 
+	if (firstRun==0) {
+		// Beim nächsten NR-Start ist nrFirstRun gesetzt. 
+		Data.setFirstRun(heute);
+	}
 
 
 	// $scope.grundlage = 35;
@@ -21,8 +27,7 @@ function ($scope, $rootScope, $stateParams, Data, Config, $ionicModal, $timeout,
 
 	var firstVisit = localStorage.getItem('firstVisit');
 	
-	
-	
+		
 	$scope.showActionsheet = function() {
     
 	    $ionicActionSheet.show({
@@ -64,21 +69,25 @@ function ($scope, $rootScope, $stateParams, Data, Config, $ionicModal, $timeout,
 	
 	$scope.showWelcome = function() {
 	   var alertPopup = $ionicPopup.alert({
-	     title: 'Willkommen bei Notenrechner!',
+	     title: 'Willkommen beim Notenrechner!',
 	     template: 'Tappen Sie auf <span style="font-weight : bold"> "Beste Note bei" </span>um die Berechnungsgrundlage einzugeben und auf <span style="font-weight : bold"> "Erreichte Punkte"  </span> um die erreichten Punkte einzugeben.'
 	   });
 	
-	   alertPopup.then(function(res) {
-	     console.log('Thank you for not eating my delicious ice cream cone');
-	     // 
+	   alertPopup.then(function(res) {	     
+		if(firstRun==0) {
+			$scope.showHowto();		
+		}		 
 	   });
    	};
 	
-	if (firstVisit) {
-		$scope.showWelcome();
-		
+	if(firstRun==0) {
+		$scope.showWelcome();		
 	}
 	
+	
+		
+		
+		
 	
 	 // Load the modal from the given template URL
     $ionicModal.fromTemplateUrl('templates/modal.html', {

@@ -28,8 +28,12 @@ angular.module('app.services', [])
 						erreicht : 'Erreicht'
 					}
 				},
-		getLastRun: function() {
+		getFirstRun: function() {
             return window.localStorage['nrFirstRun'] || '0';
+            
+        },
+		setFirstRun: function(wann) {
+            window.localStorage['nrFirstRun'] = wann;
             
         },
 		getRuns: function() {
@@ -40,10 +44,7 @@ angular.module('app.services', [])
             window.localStorage['nrRuns'] = anzahl;
             
         },
-		setFirstRun: function(wann) {
-            window.localStorage['nrFirstRun'] = wann;
-            
-        },
+		
         loadDefault: function() {
           var data =[
       					 {
