@@ -108,81 +108,15 @@ function ($scope, $rootScope, $stateParams, Data, Config, $ionicModal, $timeout,
 
   if (!firstVisit) {
 		// Lade default-Wert
+		console.log("Erster Start, lade Default-Werte!");
 		Data.loadDefault();
-
-	$scope.Data.records =[
-				 {
-					 "Note" : "ungenügend",
-					 "Prozent" : "10",
-					 "Punkte" : "0"
-					},{
-						"Note" : "mangelhaft",
-						"Prozent" : "11",
-						"Punkte" : "1"
-					},{
-						"Note" : "mangelhaft",
-						"Prozent" : "19",
-						"Punkte" : "2"
-					},{
-						"Note" : "mangelhaft",
-						"Prozent" : "28",
-						"Punkte" : "3"
-					},{
-						"Note" : "ausreichend",
-						"Prozent" : "36",
-						"Punkte" : "4"
-					},{
-						"Note" : "ausreichend",
-						"Prozent" : "44",
-						"Punkte" : "5"
-					},{
-						"Note" : "ausreichend",
-						"Prozent" : "50",
-						"Punkte" : "6"
-					},{
-						"Note" : "befriedigend",
-						"Prozent" : "54",
-						"Punkte" : "7"
-					},{
-						"Note" : "befriedigend",
-						"Prozent" : "60",
-						"Punkte" : "8"
-					},{
-						"Note" : "befriedigend",
-						"Prozent" : "64",
-						"Punkte" : "9"
-					},{
-						"Note" : "gut",
-						"Prozent" : "70",
-						"Punkte" : "10"
-					},{
-						"Note" : "gut",
-						"Prozent" : "74",
-						"Punkte" : "11"
-					},{
-						"Note" : "gut",
-						"Prozent" : "80",
-						"Punkte" : "12"
-					},{
-						"Note" : "sehr gut",
-						"Prozent" : "84",
-						"Punkte" : "13"
-					},{
-						"Note" : "sehr gut",
-						"Prozent" : "90",
-						"Punkte" : "14"
-					},{
-						"Note" : "sehr gut",
-						"Prozent" : "94",
-						"Punkte" : "15"
-					}
-			]
-		}
-		else {
-			console.log("Lade Daten!!!");
-			$scope.Data.records = Data.all();
-		}
-
+		Data.setFirstRun(heute);
+		Data.setFirstVisit(heute);
+	}
+	
+	// Daten laden
+	$scope.Data.records = Data.all();
+		
 }])
 
    
@@ -251,71 +185,87 @@ function ($scope, $rootScope, $stateParams, $ionicPopup, Data ) {
 		window.localStorage.setItem('firstVisit','');
 		$scope.Data.records =[
 					 {
-						 "Note" : "ungenügend",
-						 "Prozent" : "10",
-						 "Punkte" : "0"
-						},{
-							"Note" : "mangelhaft",
-							"Prozent" : "11",
-							"Punkte" : "1"
-						},{
-							"Note" : "mangelhaft",
-							"Prozent" : "19",
-							"Punkte" : "2"
-						},{
-							"Note" : "mangelhaft",
-							"Prozent" : "28",
-							"Punkte" : "3"
-						},{
-							"Note" : "ausreichend",
-							"Prozent" : "36",
-							"Punkte" : "4"
-						},{
-							"Note" : "ausreichend",
-							"Prozent" : "44",
-							"Punkte" : "5"
-						},{
-							"Note" : "ausreichend",
-							"Prozent" : "50",
-							"Punkte" : "6"
-						},{
-							"Note" : "befriedigend",
-							"Prozent" : "54",
-							"Punkte" : "7"
-						},{
-							"Note" : "befriedigend",
-							"Prozent" : "60",
-							"Punkte" : "8"
-						},{
-							"Note" : "befriedigend",
-							"Prozent" : "64",
-							"Punkte" : "9"
-						},{
-							"Note" : "gut",
-							"Prozent" : "70",
-							"Punkte" : "10"
-						},{
-							"Note" : "gut",
-							"Prozent" : "74",
-							"Punkte" : "11"
-						},{
-							"Note" : "gut",
-							"Prozent" : "80",
-							"Punkte" : "12"
-						},{
-							"Note" : "sehr gut",
-							"Prozent" : "84",
-							"Punkte" : "13"
-						},{
-							"Note" : "sehr gut",
-							"Prozent" : "90",
-							"Punkte" : "14"
-						},{
-							"Note" : "sehr gut",
-							"Prozent" : "94",
-							"Punkte" : "15"
-						}
-				]
+      						 "Note" : "ungenügend",
+      						 "Prozent" : "10",
+      						 "Punkte" : "0",
+							 "Tendenz" : "6"
+      						},{
+      							"Note" : "mangelhaft",
+      							"Prozent" : "11",
+      							"Punkte" : "1",
+								"Tendenz" : "5-"
+      						},{
+      							"Note" : "mangelhaft",
+      							"Prozent" : "19",
+      							"Punkte" : "2",
+								"Tendenz" : "5"
+      						},{
+      							"Note" : "mangelhaft",
+      							"Prozent" : "28",
+      							"Punkte" : "3",
+								"Tendenz" : "5+"
+      						},{
+      							"Note" : "ausreichend",
+      							"Prozent" : "36",
+      							"Punkte" : "4",
+								"Tendenz" : "4-"
+      						},{
+      							"Note" : "ausreichend",
+      							"Prozent" : "44",
+      							"Punkte" : "5",
+								"Tendenz" : "4"
+      						},{
+      							"Note" : "ausreichend",
+      							"Prozent" : "50",
+      							"Punkte" : "6",
+								"Tendenz" : "4+"
+      						},{
+      							"Note" : "befriedigend",
+      							"Prozent" : "54",
+      							"Punkte" : "7",
+								"Tendenz" : "3-"
+      						},{
+      							"Note" : "befriedigend",
+      							"Prozent" : "60",
+      							"Punkte" : "8",
+								"Tendenz" : "3"
+      						},{
+      							"Note" : "befriedigend",
+      							"Prozent" : "64",
+      							"Punkte" : "9",
+								"Tendenz" : "3+"
+      						},{
+      							"Note" : "gut",
+      							"Prozent" : "70",
+      							"Punkte" : "10",
+								"Tendenz" : "2-"
+      						},{
+      							"Note" : "gut",
+      							"Prozent" : "74",
+      							"Punkte" : "11",
+								"Tendenz" : "2"
+      						},{
+      							"Note" : "gut",
+      							"Prozent" : "80",
+      							"Punkte" : "12",
+								"Tendenz" : "2+"
+      						},{
+      							"Note" : "sehr gut",
+      							"Prozent" : "84",
+      							"Punkte" : "13",
+								"Tendenz" : "1-"
+      						},{
+      							"Note" : "sehr gut",
+      							"Prozent" : "90",
+      							"Punkte" : "14",
+								"Tendenz" : "1"
+      						},{
+      							"Note" : "sehr gut",
+      							"Prozent" : "94",
+      							"Punkte" : "15",
+								"Tendenz" : "1+"
+      						}
+				];
 				Data.save($scope.Data.records);
 
 

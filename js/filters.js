@@ -67,6 +67,7 @@ angular.module('app.filters', ['ionic'])
     var pct = 0.0;
     var note;
     var rnr;
+	var tendenz;
     Data.activeRecord=0;
 
 		for (var i in Data.records) {
@@ -74,6 +75,7 @@ angular.module('app.filters', ['ionic'])
 						if (parseFloat(Data.records[i].Punkte)>pct) {
 							pct=parseFloat(Data.records[i].Punkte);
 								note=Data.records[i].Note;
+								tendenz=Data.records[i].Tendenz;
 									Data.activeRecord=i;
 
 						}
