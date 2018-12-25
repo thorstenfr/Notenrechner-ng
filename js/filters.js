@@ -29,13 +29,82 @@ angular.module('app.filters', ['ionic'])
 				return "2";
 			case "2.1":
 				return "2";
-			case "2.1":
-				return "2";
 			case "2.2":
-				return "2-";
+				return "2";
 			case "2.3":
 				return "2-";
-
+			case "2.4":
+				return "2-";
+			case "2.5":
+				return "2-3";
+			case "2.6":
+				return "2-3";
+			case "2.7":
+				return "3+";
+			case "2.8":
+				return "3+";
+			case "2.9":
+				return "3";
+			case "3.0":
+				return "3";
+			case "3.1":
+				return "3";
+			case "3.2":
+				return "3";
+			case "3.3":
+				return "3-";
+			case "3.4":
+				return "3-";
+			case "3.5":
+				return "3-4";
+			case "3.6":
+				return "3-4";
+			case "3.7":
+				return "4+";
+			case "3.8":
+				return "4+";
+			case "3.9":
+				return "4";
+			case "4.0":
+				return "4";
+			case "4.1":
+				return "4";
+			case "4.2":
+				return "4";
+			case "4.3":
+				return "4-";
+			case "4.4":
+				return "4-";
+			case "4.5":
+				return "4-5";
+			case "4.6":
+				return "4-5";
+			case "4.7":
+				return "5+";
+			case "4.8":
+				return "5+";
+			case "4.9":
+				return "5";	
+			case "5.0":
+				return "5";
+			case "5.1":
+				return "5";
+			case "5.2":
+				return "5";
+			case "5.3":
+				return "5-";
+			case "5.4":
+				return "5-";
+			case "5.5":
+				return "5-6";
+			case "5.6":
+				return "5-6";
+			case "5.7":
+				return "6+";
+			case "5.8":
+				return "6+";
+			case "5.9":
+				return "6";		
 			default:
 				return "6";
 		}

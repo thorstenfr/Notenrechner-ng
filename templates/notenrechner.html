@@ -1,10 +1,10 @@
-<ion-view title="Notenrechner" id="page1" style="background-color:default;">
+<ion-view  title="Notenrechenr" id="page1" style="background-color:default;">
   <ion-content padding="true" scroll="false" class="has-header">
     <div id="notenrechner-container2">
 		
       <h1 ng-if="!Data.linNotenschluessel.checked" id="notenrechner-heading1" style="color:#0B1B81;font-weight:lighter;text-align:center;">{{((Data.erreicht/Data.grundlage)*100) | prozentFilterStateful}}{{Data.records[Data.activeRecord].Punkte}} Punkte<br>Note: {{Data.records[Data.activeRecord].Note}} ({{Data.records[Data.activeRecord].Tendenz}})<br>
 		  </h1>
-      <h1 ng-if="Data.linNotenschluessel.checked" id="notenrechner-heading2" style="color:#0B1B81;font-weight:lighter;text-align:center;">Note {{(6-5*(Data.erreicht/Data.grundlage)) < 1 ? 1 : (6-5*(Data.erreicht/Data.grundlage)) | number:1}}</h1>
+      <h1 ng-if="Data.linNotenschluessel.checked" id="notenrechner-heading2" style="color:#0B1B81;font-weight:lighter;text-align:center;">Note {{(6-5*(Data.erreicht/Data.grundlage)) < 1 ? 1 : (6-5*(Data.erreicht/Data.grundlage)) | number:1}}<br>Tendenz: {{(6-5*(Data.erreicht/Data.grundlage)) < 1 ? 1 : (6-5*(Data.erreicht/Data.grundlage)) | number:1 | viertelNoteFilter}}</h1>
       <h1 id="notenrechner-heading4" style="color:#0B1B81;font-weight:lighter;text-align:center;">{{((Data.erreicht/Data.grundlage)*100) | number : 1}}%</h1>
     </div>
     <div id="notenrechner-button-bar5" class="button-bar" >
