@@ -1,0 +1,14 @@
+<ion-view title="Punkteliste" id="page4">
+  <ion-content padding="true" class="has-header">
+	<h6>Erreichbar: {{Data.grundlage}}</h6>
+	<div class="row">
+		<div class="col">Punkte</div>
+		<div class="col">ab</div>
+	</div>
+    <div  class="row" ng-repeat="r in Data.records | orderBy:'-'">
+    <div class="col">{{r.Punkte}}</div>
+    <div class="col">{{Data.grundlage*r.Prozent/100 | number:1}}</div>
+     </div>
+</ion-content>
+</ion-view>
+

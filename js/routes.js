@@ -38,6 +38,15 @@ angular.module('app.routes', [])
       }
     }
   })
+  .state('menu.punkteliste', {
+    url: '/page4',
+    views: {
+      'side-menu21': {
+        templateUrl: 'templates/punkteliste.html',
+        controller: 'punktelisteCtrl'
+      }
+    }
+  })
 
   .state('menu', {
     url: '/side-menu21',
