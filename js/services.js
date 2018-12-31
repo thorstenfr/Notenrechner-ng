@@ -2,7 +2,6 @@ angular.module('app.services', [])
 
 .factory('Data', [function(){
     return {
-    
     	all: function() {
             var dataString = window.localStorage['data'];
             if(dataString) {
@@ -17,10 +16,10 @@ angular.module('app.services', [])
         },
 				newRecord: function() {
 					return {
-						Note : '',
-						Prozent : '',
-						Punkte : '',
-						Tendenz : ''
+						grundlage : '',
+						erreicht : '',
+						notenpunkte : '',
+						datum : ''
 					}
 				},
 				tutorial: function() {

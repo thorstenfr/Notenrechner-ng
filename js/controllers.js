@@ -5,8 +5,12 @@ angular.module('app.controllers', [])
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
 function ($scope, $rootScope, $stateParams, Data, Config, $ionicModal, $timeout, $ionicPopup,$ionicActionSheet, $ionicNavBarDelegate, $location) {
 	// Data = DataStorage.all();
+	var d = new Date();
+    var now = d.getTime();
+		
 	
 	$scope.Data = Data;
+	$scope.noten = Data.all();
 	$scope.Tutorial = Data.tutorial();
 	const heute = new Date();
 	var firstRun = Data.getFirstRun();
@@ -24,10 +28,10 @@ function ($scope, $rootScope, $stateParams, Data, Config, $ionicModal, $timeout,
 	$scope.erreicht = 20;
 	$scope.notenpunkte = 6;
 	$scope.isErreicht = true;
+	$scope.eingabe = false;
 
 	var firstVisit = localStorage.getItem('firstVisit');
-	
-		
+
 	$scope.showActionsheet = function() {
     
 	    $ionicActionSheet.show({
@@ -310,13 +314,12 @@ function ($scope, $stateParams, Data) {
 	$scope.Data = Data;
 
 }])
-
-   
 .controller('menuCtrl', ['$scope', '$stateParams', 'Data', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
 function ($scope, $stateParams, Data) {
 	$scope.Data = Data;
+	
 
 }])
  

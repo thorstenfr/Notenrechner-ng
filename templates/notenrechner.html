@@ -4,12 +4,12 @@
 		
       <h1 ng-if="!Data.linNotenschluessel.checked" id="notenrechner-heading1" style="color:#0B1B81;font-weight:lighter;text-align:center;">{{((Data.erreicht/Data.grundlage)*100) | prozentFilterStateful}}{{Data.records[Data.activeRecord].Punkte}} Punkte<br>Note: {{Data.records[Data.activeRecord].Note}} ({{Data.records[Data.activeRecord].Tendenz}})<br>
 		  </h1>
-      <h1 ng-if="Data.linNotenschluessel.checked" id="notenrechner-heading2" style="color:#0B1B81;font-weight:lighter;text-align:center;">Note {{(6-5*(Data.erreicht/Data.grundlage)) < 1 ? 1 : (6-5*(Data.erreicht/Data.grundlage)) | number:1}}<br>Tendenz: {{(6-5*(Data.erreicht/Data.grundlage)) < 1 ? 1 : (6-5*(Data.erreicht/Data.grundlage)) | number:1 | viertelNoteFilter}}</h1>
+      <h1 ng-if="Data.linNotenschluessel.checked" id="notenrechner-heading2" style="color:#0B1B81;font-weight:lighter;text-align:center;">Note: {{(6-5*(Data.erreicht/Data.grundlage)) < 1 ? 1 : (6-5*(Data.erreicht/Data.grundlage)) | number:1}}<br>Tendenz: {{(6-5*(Data.erreicht/Data.grundlage)) < 1 ? 1 : (6-5*(Data.erreicht/Data.grundlage)) | number:1 | viertelNoteFilter}}</h1>
       <h1 id="notenrechner-heading4" style="color:#0B1B81;font-weight:lighter;text-align:center;">{{((Data.erreicht/Data.grundlage)*100) | number : 1}}%</h1>
     </div>
     <div id="notenrechner-button-bar5" class="button-bar" >
       <button class="button button-large button-block notenrechner-button" ng-class="!isErreicht ?  ' button-light ' : 'button-stable'" ng-click="Data.grundlage = ''; isErreicht=false" id="notenrechner-button26" style="line-height: 1.5; vertical-align:middle; font-weight:300;font-size:9px;" >Beste Note bei:<br><span style="font-weight:normal; color : default; font-size : 2em;">{{Data.grundlage}}</span></button>
-      <button class="button button-large button-block notenrechner-button" ng-class="isErreicht ?  ' button-light ' : 'button-stable'" ng-click="Data.erreicht = ''; isErreicht=true" id="notenrechner-button24" style="line-height: 1.5; vertical-align:middle; font-weight:300;font-size:9px;" >Erreichte Punkte:<br><span style="font-weight:normal; color : default; font-size : 2em;">{{Data.erreicht}}</span></button>
+      <button class="button button-large button-block notenrechner-button" ng-class="isErreicht ?  ' button-light ' : 'button-stable'" ng-click="Data.erreicht=''; isErreicht=true" id="notenrechner-button24" style="line-height: 1.5; vertical-align:middle; font-weight:300;font-size:9px;" >Erreichte Punkte:<br><span style="font-weight:normal; color : default; font-size : 2em;">{{Data.erreicht}}</span></button>
     </div>
     <div id="notenrechner-button-bar1" class="button-bar">
       <button ng-click="isErreicht ? Data.erreicht=Data.erreicht + '7' : Data.grundlage=Data.grundlage +'7'" id="notenrechner-button8" class="button button-positive button-block notenrechner-button">7</button>
