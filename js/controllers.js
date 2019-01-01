@@ -114,7 +114,7 @@ function ($scope, $rootScope, $stateParams, Data, Config, $ionicModal, $timeout,
 	}
 	var diff=jetzt-letzterKlick;
 	// alert(diff);
-	if (diff>zeitspanne || diff==0){
+	if ((Data.intEingabe) && (diff>zeitspanne || diff==0)){
 		if (Data.isErreicht) {
 			Data.erreicht='';
 			Data.erreicht=nummer;
