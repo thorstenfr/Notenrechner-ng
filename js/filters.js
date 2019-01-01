@@ -3,8 +3,7 @@ angular.module('app.filters', ['ionic'])
 
 .filter('viertelNoteFilter', function() {
 	return function(input) {
-		console.log("Input: " + input);
-		switch(input) {
+	switch(input) {
 			case "1.0":
 				return "1";
 			case "1.1":
