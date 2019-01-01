@@ -49,8 +49,8 @@ angular.module('app.services', [])
             
         },
 		
-        loadDefault: function() {
-			console.log("services: lade Default");
+        setDefault: function() {
+			console.log("services: setze Default");
           var data =[
       					 {
       						 "Note" : "ungenügend (6)",

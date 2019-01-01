@@ -146,7 +146,7 @@ function ($scope, $rootScope, $stateParams, Data, Config, $ionicModal, $timeout,
   if (!firstVisit) {
 		// Lade default-Wert
 		console.log("Erster Start, lade Default-Werte!");
-		Data.loadDefault();
+		Data.setDefault();
 		Data.setFirstRun(heute);
 		Data.setFirstVisit(heute);
 	}
@@ -220,7 +220,7 @@ function ($scope, $rootScope, $stateParams, $ionicPopup, Data ) {
 	
 	$scope.setDefault = function(kurs) {
 		window.localStorage.setItem('firstVisit','');
-		 Data.loadDefault();
+		 Data.setDefault();
 		 Data.save($scope.Data.records);
 		 
 		 // Daten laden
