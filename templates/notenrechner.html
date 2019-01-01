@@ -8,28 +8,28 @@
       <h1 id="notenrechner-heading4" style="color:#0B1B81;font-weight:lighter;text-align:center;">{{((Data.erreicht/Data.grundlage)*100) | number : 1}}%</h1>
     </div>
     <div id="notenrechner-button-bar5" class="button-bar" >
-      <button class="button button-large button-block notenrechner-button" ng-class="!isErreicht ?  ' button-light ' : 'button-stable'" ng-click="Data.grundlage = ''; isErreicht=false" id="notenrechner-button26" style="line-height: 1.5; vertical-align:middle; font-weight:300;font-size:9px;" >Beste Note bei:<br><span style="font-weight:normal; color : default; font-size : 2em;">{{Data.grundlage}}</span></button>
-      <button class="button button-large button-block notenrechner-button" ng-class="isErreicht ?  ' button-light ' : 'button-stable'" ng-click="Data.erreicht=''; isErreicht=true" id="notenrechner-button24" style="line-height: 1.5; vertical-align:middle; font-weight:300;font-size:9px;" >Erreichte Punkte:<br><span style="font-weight:normal; color : default; font-size : 2em;">{{Data.erreicht}}</span></button>
+      <button class="button button-large button-block notenrechner-button" ng-class="!Data.isErreicht ?  ' button-light ' : 'button-stable'" ng-click="Data.grundlage = ''; Data.isErreicht=false" id="notenrechner-button26" style="line-height: 1.5; vertical-align:middle; font-weight:300;font-size:9px;" >Beste Note bei:<br><span style="font-weight:normal; color : default; font-size : 2em;">{{Data.grundlage}}</span></button>
+      <button class="button button-large button-block notenrechner-button" ng-class="Data.isErreicht ?  ' button-light ' : 'button-stable'" ng-click="Data.erreicht=''; Data.isErreicht=true" id="notenrechner-button24" style="line-height: 1.5; vertical-align:middle; font-weight:300;font-size:9px;" >Erreichte Punkte:<br><span style="font-weight:normal; color : default; font-size : 2em;">{{Data.erreicht}}</span></button>
     </div>
     <div id="notenrechner-button-bar1" class="button-bar">
-      <button ng-click="isErreicht ? Data.erreicht=Data.erreicht + '7' : Data.grundlage=Data.grundlage +'7'" id="notenrechner-button8" class="button button-positive button-block notenrechner-button">7</button>
-      <button ng-click="isErreicht ? Data.erreicht=Data.erreicht + '8' : Data.grundlage=Data.grundlage +'8'" id="notenrechner-button6" class="button button-positive button-block notenrechner-button">8</button>
-      <button ng-click="isErreicht ? Data.erreicht=Data.erreicht + '9' : Data.grundlage=Data.grundlage +'9'" ng-click="isErreicht ? Data.erreicht=Data.erreicht + '7' : Data.grundlage=Data.grundlage +'9'" id="notenrechner-button7" class="button button-positive button-block notenrechner-button">9</button>
+      <button ng-click="nummerKlick('7')" id="notenrechner-button8" class="button button-positive button-block notenrechner-button">7</button>
+      <button ng-click="nummerKlick('8')" id="notenrechner-button6" class="button button-positive button-block notenrechner-button">8</button>
+      <button ng-click="nummerKlick('9')" id="notenrechner-button7" class="button button-positive button-block notenrechner-button">9</button>
     </div>
     <div id="notenrechner-button-bar2" class="button-bar">
-      <button ng-click="isErreicht ? Data.erreicht=Data.erreicht + '4' : Data.grundlage=Data.grundlage +'4'" id="notenrechner-button9" class="button button-positive button-block notenrechner-button">4</button>
-      <button ng-click="isErreicht ? Data.erreicht=Data.erreicht + '5' : Data.grundlage=Data.grundlage +'5'"  id="notenrechner-button11" class="button button-positive button-block notenrechner-button">5</button>
-      <button ng-click="isErreicht ? Data.erreicht=Data.erreicht + '6' : Data.grundlage=Data.grundlage +'6'"  id="notenrechner-button15" class="button button-positive button-block notenrechner-button">6</button>
+      <button ng-click="nummerKlick('4')" id="notenrechner-button9" class="button button-positive button-block notenrechner-button">4</button>
+      <button ng-click="nummerKlick('5')" id="notenrechner-button11" class="button button-positive button-block notenrechner-button">5</button>
+      <button ng-click="nummerKlick('6')" id="notenrechner-button15" class="button button-positive button-block notenrechner-button">6</button>
     </div>
     <div id="notenrechner-button-bar3" class="button-bar">
-      <button ng-click="isErreicht ? Data.erreicht=Data.erreicht + '1' : Data.grundlage=Data.grundlage +'1'" id="notenrechner-button12" class="button button-positive button-block notenrechner-button">1</button>
-      <button ng-click="isErreicht ? Data.erreicht=Data.erreicht + '2' : Data.grundlage=Data.grundlage +'2'" id="notenrechner-button13" class="button button-positive button-block notenrechner-button">2</button>
-      <button ng-click="isErreicht ? Data.erreicht=Data.erreicht + '3' : Data.grundlage=Data.grundlage +'3'" id="notenrechner-button14" class="button button-positive button-block notenrechner-button">3</button>
+      <button ng-click="nummerKlick('1')" id="notenrechner-button12" class="button button-positive button-block notenrechner-button">1</button>
+      <button ng-click="nummerKlick('2')" id="notenrechner-button13" class="button button-positive button-block notenrechner-button">2</button>
+      <button ng-click="nummerKlick('3')" id="notenrechner-button14" class="button button-positive button-block notenrechner-button">3</button>
     </div>
     <div id="notenrechner-button-bar4" class="button-bar">
-      <button  ng-click="isErreicht ? Data.erreicht = Data.erreicht + '0' : Data.grundlage=Data.grundlage +'0' " id="notenrechner-button18" class="button button-positive button-block notenrechner-button">0</button>
-      <button ng-click="isErreicht ? Data.erreicht = Data.erreicht + '.' : Data.grundlage = Data.grundlage + '.'" id="notenrechner-button17" class="button button-positive button-block notenrechner-button">,</button>
-	  <button ng-click="isErreicht ? Data.erreicht = '' : Data.grundlage = ''" class="button button-positive button-block notenrechner-button">C</button>
+      <button  ng-click="nummerKlick('0')" id="notenrechner-button18" class="button button-positive button-block notenrechner-button">0</button>
+      <button ng-click="nummerKlick(',')" id="notenrechner-button17" class="button button-positive button-block notenrechner-button">,</button>
+	  <button ng-click="Data.isErreicht ? Data.erreicht = '' : Data.grundlage = ''" class="button button-positive button-block notenrechner-button">C</button>
     </div>
   </ion-content>
 </ion-view>

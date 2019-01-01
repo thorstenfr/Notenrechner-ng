@@ -7,6 +7,7 @@ function ($scope, $rootScope, $stateParams, Data, Config, $ionicModal, $timeout,
 	// Data = DataStorage.all();
 	var d = new Date();
     var now = d.getTime();
+    var letzterKlick;
 		
 	
 	$scope.Data = Data;
@@ -26,7 +27,7 @@ function ($scope, $rootScope, $stateParams, Data, Config, $ionicModal, $timeout,
 	$scope.grundlage = 35;
 	$scope.erreicht = 20;
 	$scope.notenpunkte = 6;
-	$scope.isErreicht = true;
+	Data.isErreicht = true;
 	$scope.eingabe = false;
 
 	var firstVisit = localStorage.getItem('firstVisit');
@@ -101,6 +102,39 @@ function ($scope, $rootScope, $stateParams, Data, Config, $ionicModal, $timeout,
 	$scope.loadNewFilter = function (){
 	    $scope.filter = [1,2,3];
 	    $scope.$apply();
+	}
+	$scope.nummerKlick = function(nummer) {
+	var zeitspanne=2000;
+	var jetzt=Date.now();
+//	alert(Data.isErreicht);
+	
+	if (isNaN(letzterKlick)){
+	//	alert(jetzt);
+		letzterKlick=jetzt;
+	}
+	var diff=jetzt-letzterKlick;
+	// alert(diff);
+	if (diff>zeitspanne || diff==0){
+		if (Data.isErreicht) {
+			Data.erreicht='';
+			Data.erreicht=nummer;
+		}
+		else {
+			Data.grundlage='';
+			Data.grundlage=nummer;
+		}
+	}
+	else {
+		if (Data.isErreicht) {
+		Data.erreicht=Data.erreicht+nummer;
+			
+		}
+		else {
+			Data.grundlage=Data.grundlage+nummer;
+		}
+		
+		}
+		letzterKlick=jetzt;
 	}
 
 	$scope.$on('$ionicView.enter', function(){
