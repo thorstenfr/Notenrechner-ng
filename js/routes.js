@@ -18,6 +18,15 @@ angular.module('app.routes', [])
       }
     }
   })
+  .state('menu.zeugnisrechner', {
+    url: '/page5',
+    views: {
+      'side-menu21': {
+        templateUrl: 'templates/zeugnisrechner.html',
+        controller: 'zeugnisrechnerCtrl'
+      }
+    }
+	})
 
   .state('menu.berechnungshinweise', {
     url: '/page2',

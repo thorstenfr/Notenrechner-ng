@@ -1,5 +1,38 @@
 angular.module('app.filters', ['ionic'])
 
+.filter('valueFilter', ['Data',function(Data) {
+	return function(input) {
+		switch(input) {
+		case "0":  
+			Data.muendlich = 3;
+			  Data.schriftlich = 1;
+			  break;
+			
+			  
+		case "1":
+			  Data.muendlich = 2;
+			  Data.schriftlich = 1;
+			   break;
+			  
+		case "2":
+			  Data.muendlich = 1;
+			  Data.schriftlich = 1;
+			   break;
+		case "3":
+			  Data.muendlich = 1;
+			  Data.schriftlich = 2;
+			   break;
+		case "4":
+			  Data.muendlich = 1;
+			  Data.schriftlich = 3;
+			  break;
+		case "5":
+			  Data.muendlich = 1;
+			  Data.schriftlich = 4;
+			   break;
+		}
+	}
+}])
 
 .filter('viertelNoteFilter', function() {
 	return function(input) {
