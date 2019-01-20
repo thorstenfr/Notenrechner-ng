@@ -1,22 +1,26 @@
 <ion-view title="Zeugnisrechner" id="page5" style="background-color:default;">
   <ion-content padding="true" scroll="false" class="has-header">
     <h1 id="zeugnisrechner-heading17" style="color:#0B1B81;font-weight:lighter;text-align:center;">Note: 4 (4+)</h1>
-    <div id="zeugnisrechner-button-bar12" class="button-bar"></div>
-    <form id="zeugnisrechner-form3" class="list">
-		
-      <ion-item class="range range-positive">Gewichtung
-		 <input type="range" name="range" ng-model="$parent.value" min="{{min}}"  max="{{max}}">
-      
-      </ion-item>
-      <div class="spacer" style="width: 300px; height: 14px;"></div>
-      <div id="zeugnisrechner-markdown12" class="show-list-numbers-and-dots">
-        <p style="color:#000000;font-size:17px;">Schriftlich zu mündlich, wie
-          <strong>{{value | valueFilter}}{{Data.schriftlich}}</strong> zu
-          <strong>{{Data.muendlich}}</strong>
-        </p>
-		
-      </div>	  
-    </form>
+	
+    
+	
+	<div id="zeugnisrechner-button-bar12" class="button-bar"></div>
+    
+	
+	<p class="item-content" style="text-align : center;">{{value | valueFilter}}Mündlich <strong>{{Data.muendlich}}</strong> : Schriftlich <strong>{{Data.schriftlich}}</strong> </p>
+	
+	<label class="item ">
+    
+    <div class="range range-positive">
+       
+        <input type="range" name="range" ng-model="$parent.value" min="{{min}}"  max="{{max}}">
+     
+    </div>
+</label>
+	
+	
+	
+
     <button id="zeugnisrechner-button42" class="button button-positive button-block icon ion-android-add"> Schriftliche Leistung</button>
     <ion-list id="zeugnisrechner-list3">
       <ion-item id="zeugnisrechner-list-item12">Leistung: 3,5 Gewichtung: 4
