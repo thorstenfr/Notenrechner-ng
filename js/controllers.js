@@ -265,6 +265,7 @@ function ($scope, $rootScope, $stateParams, $ionicPopup, Data ) {
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
 function ($scope, $stateParams, Data) {
 	$scope.Data = Data;
+	$scope.Math = window.Math;
 
 }])
 .controller('menuCtrl', ['$scope', '$stateParams', 'Data', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
@@ -285,6 +286,19 @@ function ($scope, $stateParams, Data) {
 	$scope.value = 3;
       $scope.min = 0;
       $scope.max = 5;
+	  
+	  
+	  
+	  var schriftl =[
+      					 {
+      						 Note : "3,5",
+      						 Gewicht : "4"
+      						},
+						{
+      							Note : "1,5",
+								Gewicht : "1"
+      						}
+						]
 	  
 	  
 	

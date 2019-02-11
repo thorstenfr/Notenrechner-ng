@@ -1,13 +1,16 @@
 <ion-view title="Punkteliste" id="page4">
 <ion-content padding="true" class="has-header">
+<h1 ng-if="Data.linNotenschluessel.checked">Linearer Notenschlüssel</h1>
+<h1 ng-if="!Data.linNotenschluessel.checked">Noten-Punkte-Schlüssel</h1>
 <h6>Erreichbar: {{Data.grundlage}}</h6>
 <div class="row">
 	<div class="col">Punkte</div>
-	<div class="col">ab</div>
+	<div class="col">ab</div>	
 </div>
 <div  class="row" ng-repeat="r in Data.records | orderBy:'-'">
 <div class="col">{{r.Punkte}}</div>
-<div class="col">{{Data.grundlage*r.Prozent/100 | number:1}}</div>
+<div class="col">{{Math.ceil((Data.grundlage*r.Prozent/100)*2)/2}}
+
  </div>
 </ion-content>
 </ion-view>
