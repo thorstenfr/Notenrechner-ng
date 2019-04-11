@@ -286,6 +286,40 @@ function ($scope, $stateParams, Data) {
 	$scope.value = 3;
       $scope.min = 0;
       $scope.max = 5;
+ 
+ // Hilfsfunktion für zufällige Ganzzahl     
+      function getRandomInt(min, max) {
+		  min = Math.ceil(min);
+		  max = Math.floor(max);
+		  return Math.floor(Math.random() * (max - min)) + min;
+	}
+      
+    // A utility function for creating a new entry
+    // 
+    var erstelleNoteneintragSchriftlich = function(neueNote,neueGewichtung) {
+		console.log("Neue Note: " + neueNote + " Gewicht: " + neueGewichtung);
+        if (!neueNote || !neueGewichtung) {
+            return;
+        }
+
+		if ($scope.schriftlich) {
+	        $scope.schriftlich.push({
+	            leistung : neueNote,
+	            gewichtung : neueGewichtung
+	        });
+	    } 
+	    else {
+	    	
+	    	$scope.schriftlich=[{leistung:neueNote,gewichtung:neueGewichtung}];
+	    }
+       };
+
+	// Neuer schriftlicher Noteneintrag soll erstellt werden
+	// Dazu ein Popup
+	$scope.neuerNoteneintragSchriftlich = function() {
+		erstelleNoteneintragSchriftlich(getRandomInt(1,7),getRandomInt(1,4));
+			
+	}
 	  
 	  
 	  

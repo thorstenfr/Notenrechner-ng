@@ -1,0 +1,32 @@
+	<div class="modal" >
+
+    <!-- Modal header bar -->
+    <ion-header-bar class="bar-secondary">
+    	
+      <h1 class="title">Neue schriftliche Leistung erfassen</h1>
+      <button ng-click="closeModalPupil()" class="button button-clear button-positive">Abbruch</button>
+    </ion-header-bar>
+
+    <!-- Modal content area -->
+    <ion-content>
+    
+     <form ng-submit="neueSchriftlicheNoteErfassen(note)">
+        <div class="list">
+        <label class="item item-input item-stacked-label">
+			<span class="input-label">Note: {{note.note}} </span>
+          	<input type="text" placeholder="2,5" ng-model="note.note">	             
+          </label>	
+	 	<label class="item item-input item-stacked-label">
+			<span class="input-label">Gewichtung: {{note.gewichtung}} </span>
+          	<input type="text" placeholder="4" ng-model="note.gewichtung">	             
+		</label>		  
+        </div>
+        <div class="padding">
+          <button type="submit" class="button button-block button-positive">Erfassen</button>
+        </div>
+      </form>
+
+    </ion-content>
+
+  </div>
+  

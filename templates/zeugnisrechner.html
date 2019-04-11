@@ -21,14 +21,12 @@
 	
 	
 
-    <button id="zeugnisrechner-button42" class="button button-positive button-block icon ion-android-add"> Schriftliche Leistung</button>
+    <button ng-click="neuerNoteneintragSchriftlich()" id="zeugnisrechner-button42" class="button button-positive button-block icon ion-android-add"> Schriftliche Leistung</button>
     <ion-list id="zeugnisrechner-list3">
-      <ion-item id="zeugnisrechner-list-item12">Leistung: 3,5 Gewichtung: 4
+      <ion-item id="zeugnisrechner-list-item12" ng-repeat="x in schriftlich">Leistung: {{x.leistung}} Gewichtung: {{x.gewichtung}}
         <ion-option-button class="button-assertive">Löschen</ion-option-button>
       </ion-item>
-      <ion-item id="zeugnisrechner-list-item13">Leistung: 1,0 Gewichtung: 1
-        <ion-option-button class="button-assertive">Löschen</ion-option-button>
-      </ion-item>
+      
     </ion-list>
     <button id="zeugnisrechner-button43" class="button button-positive button-block icon ion-android-add"> Mündliche Leistung</button>
     <ion-list id="zeugnisrechner-list4">
