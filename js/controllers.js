@@ -335,6 +335,14 @@ function ($scope, $stateParams, Data) {
 						]
 	  
 	  
+	$scope.getTotal = function(){
+		    var total = 0;
+		    for(var i = 0; i < $scope.schriftlich.length; i++){
+		        var product = $scope.schriftlich[i];
+		        total += (product.leistung * product.gewichtung);
+		    }
+		    return total;
+	}
 	
 
 }])
