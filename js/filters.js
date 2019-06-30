@@ -62,11 +62,11 @@ angular.module('app.filters', ['ionic'])
 			case "2.1":
 				return "2";
 			case "2.2":
-				return "2";
+				return "2-";
 			case "2.3":
 				return "2-";
 			case "2.4":
-				return "2-";
+				return "2-3";
 			case "2.5":
 				return "2-3";
 			case "2.6":
@@ -82,11 +82,11 @@ angular.module('app.filters', ['ionic'])
 			case "3.1":
 				return "3";
 			case "3.2":
-				return "3";
+				return "3-";
 			case "3.3":
 				return "3-";
 			case "3.4":
-				return "3-";
+				return "3-4";
 			case "3.5":
 				return "3-4";
 			case "3.6":
@@ -102,11 +102,11 @@ angular.module('app.filters', ['ionic'])
 			case "4.1":
 				return "4";
 			case "4.2":
-				return "4";
+				return "4-";
 			case "4.3":
 				return "4-";
 			case "4.4":
-				return "4-";
+				return "4-5";
 			case "4.5":
 				return "4-5";
 			case "4.6":
@@ -122,11 +122,11 @@ angular.module('app.filters', ['ionic'])
 			case "5.1":
 				return "5";
 			case "5.2":
-				return "5";
+				return "5-";
 			case "5.3":
 				return "5-";
 			case "5.4":
-				return "5-";
+				return "5-6";
 			case "5.5":
 				return "5-6";
 			case "5.6":
