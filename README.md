@@ -5,3 +5,7 @@ Angelar-Version des Notenrechners
 - www - Ordner des neu erstellten Projekts löschen (rm -R www)
 - das rep nach www clonen
 - ionic cordova build ios
+
+Für Icons und Spash-Screen
+- www/gimp icon.png und splash.png in resources erzeugen
+- ionic cordova resources
