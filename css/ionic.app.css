@@ -9814,10 +9814,3 @@ a.button {
   opacity: 0;
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
-
-.notenrechner-button {
-  border-radius: 5px 5px 5px 5px !important;
-  margin: 2px; }
-
-ion-view, .pane, .view {
-  background-color: #E6E6F4; }
